@@ -73,6 +73,7 @@ html, body {
 
 #NorthPane{
 	border:0px;
+	background-color: lightgray;
 }
 #brand-area {
    margin: 0;
