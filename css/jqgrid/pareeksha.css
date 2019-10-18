@@ -1,0 +1,1350 @@
+/* CSS Reset */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertical-align:baseline; }
+
+/* bg:4A4A4A or 303030 / 660000  /  993333  /853333  */
+#login_body {font-family:Tahoma, Verdana; font-weight:normal; font-size:11px; background-color:#FFFFFF; margin:5px 5px 5px 5px; text-align:center;}
+a {text-decoration:none;}
+img {border:none;}
+/* ----- login ----- */
+#logincontainer {
+background:#cccccc url('images/login.png') repeat-x top left; font-family: Tahoma, Verdana, Geneva, Arial, sans-serif; font-size:12px; text-align: center; margin-top: -178px; margin-left: -253px; position: absolute; top: 50%; left: 50%; width: 506px; height: 325px; border:1px solid #666666;}
+#loginelements { text-align:center; position:absolute; top: 175px; left: 20%; }
+#lpasserror {color:red;font-size: 8.5pt;font-weight: bold;text-align: center;position:absolute; top: -20px; left:-100px; width: 500px; }
+#errormessagelogin {margin-top:155px; color:red; font-family:Tahoma; font-size:11px; font-weight:bold;}
+#errormessageloginoff {margin-top:130px; visibility:hidden;}
+	.loginlabel { float:left; width:100px; height:20px; text-align:right; padding:2px 5px 0 0; font-family:Tahoma; font-size:11px; font-weight:bold;}
+	.logininput { float:left; width:200px; height:20px; text-align:left;}
+	.forgot {clear:both; padding:3px 0 0 21px; font-family:Tahoma; font-size:11px;}
+	.loginbuttonbar {margin:10px 0 10px 5px;}
+	.loginbutton {margin-right:5px;}
+	/* .roundbuttons {padding-right:2px;} */
+	/* form {margin-top:5px;} */
+#logincopyright {text-align:center; font-family:Tahoma; font-size:11px; position:absolute; bottom:10px; width:506px;}
+.lorgslink{color: #000000;text-decoration: underline; font-size: 95%;
+padding-right:10px;}
+
+/* Moved from mis.jsp */
+html, body {
+	margin: 0;			/* Remove body margin/padding */
+	padding: 0;
+    font-size: 75%;
+}
+/*Splitter style from Filter.jsp */
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px; /* half width of the spinner gif */
+    margin-top: -50px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1234;
+    overflow: auto;
+}
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+#LeftPane {
+	/* optional, initial splitbar position */
+	overflow: auto;
+	overflow-x: hidden;
+	
+}
+/*
+ * Right-side element of the splitter.
+*/
+
+#RightPane {
+	overflow: auto;
+}
+
+.ui-tabs-nav li {position: relative;}
+.ui-tabs-selected a span {padding-right: 10px;}
+.ui-tabs-close {display: none;position: absolute;top: 3px;right: 0px;z-index: 800;width: 16px;height: 14px;font-size: 10px; font-style: normal;cursor: pointer;}
+.ui-tabs-selected .ui-tabs-close {display: block;}
+.ui-tabs .ui-tabs-panel{ padding:1em;}
+.ui-layout-west, .ui-jqgrid tr.jqgrow td { border-bottom: 0px none;}
+.ui-datepicker {z-index:1200;}
+
+#NorthPane{
+	border:0px;
+}
+#brand-area {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   font-family: Segoe UI,Helvetica,Arial,sans-serif;
+}
+#brand, #right {
+   float: left;
+   margin: 1px 0 1px 1px;
+   padding: 1px;
+   color: #FFFFFF;
+   width:22%;
+}
+#right {
+   float: right;
+   width:34%;
+   text-align:right;
+   font-size:1.2em;
+   padding-right:4px;
+   margin: 1px 1px 1px 0;
+   vertical-align:top;
+}
+#right img{
+   padding-left:10px;
+}
+
+#right a{
+	color:#0000ff;
+	text-decoration:underline;
+}
+#right a:hover{
+	color:#df9502;
+	text-decoration:underline;
+}
+
+#mid{
+	text-align:center;
+	margin:0 auto;
+	width:26%;
+	padding-top:2px;
+}
+.clear {
+   height: 0;
+   margin: 0;
+   padding: 0;
+   line-height: 0;
+   clear: both;
+   border:0px solid #000;
+}
+#brand-area ul{margin:0;padding:0; }
+#brand-area li{list-style-type: none;display:inline;margin:0;padding:0;vertical-align:top;}
+#brand-area li a{vertical-align:top;} // fix for chrome
+
+/*Compare Org */
+#compare{
+	padding:2px;
+	border-top:0px;
+	background: #e6ead5 url(images/ui-bg_flat_0_e6ead5_40x100.png) 50% 50% repeat-x;
+}
+
+#compare .ui-widget-content{
+	padding:4px;
+	border-top:0px;
+	height:22px;
+/* 	text-align:right;
+
+ */
+ 
+}
+#compare .compare-rt-pnl, #compare .comparebtn {
+	float: right;
+	display:inline-block!important;
+	margin-left:50px; 
+}
+
+#compare .compDiv
+{
+	margin:0 4px;
+	height:20px;
+	display:inline-block!important;	
+	border:1px solid #999999;
+	background-color: #D1D1D1 !important;
+	background: url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #E6E6E6;
+}
+
+#compare .compOrg{
+	margin:0 2px;
+}
+
+#compare span.ui-icon{
+	display:inline-block;text-align:bottom;height:14px;
+}
+
+.btn-compare{
+	padding:0.3em 0.8em;
+
+}
+
+
+.outl2, .outl2 b font,  .outl2 span 
+{
+	color:#222222!important;
+}
+
+.outl2 .nl, .outl2 font, .outl2 b a , .outl2 a 
+{
+	color:#0000FF!important;
+}
+
+.outlP{
+	border:1px solid #aaaaaa;
+	height:250px;
+}
+
+.doutl
+{	border-top:0px none;
+}
+
+.Repfilter{
+	padding:2px;
+	border-top:0px;
+	background: #e6ead5 url(images/ui-bg_flat_0_e6ead5_40x100.png) 50% 50% repeat-x!important;
+	border-top:0px!important;	
+
+}
+
+.d0{
+	padding:1px;
+}
+.d1{
+	border:0px solid #ccc;
+	width:49%;		/* can be changed to px */
+	padding:1px;
+	display:inline;
+	float:left\9;	/* only for all IE's */
+	float:left;
+}
+.d2{
+
+	border:0px solid #ccc;
+	width:49%; 		/* can be changed to px */
+	padding:1px;
+	display:inline;
+	float:right;	
+}
+.lbl{
+	padding:1px;
+	width:112px;
+	display:inline-block;
+}
+
+.vab{
+	vertical-align:bottom;
+}
+
+.vat{
+	vertical-align:top;
+	padding-top:5px;
+}
+
+button, .ui-button-text-only .ui-button-text, input.ui-button {padding: 0.13em 1em;}
+
+.spc, .space {
+   margin: 5px;
+   padding: 0px;
+   line-height: 0;
+   clear: both;
+   border:0px solid #fff;
+}
+.spc1, .space1 {
+   margin: 10px;
+   padding: 0px;
+   line-height: 0;
+   clear: both;
+}
+.crl 	{padding-left: 0px;padding-top: 20px;padding-bottom: 20px;
+font-family:Verdana,Arial,sans-serif;
+
+}
+.al{
+	text-align:left;
+}
+.ac{
+	text-align:center;
+}
+.ar{
+	text-align:right;
+}
+
+.p5{
+	padding:5px;
+}
+
+#right .p10{
+	padding-right:10px;
+}
+
+.watermark {
+	color: #999 !important;
+}
+
+/* Start of classes for Trade/Order Details page */
+#tradeDetailTbl table, #orderDetailTbl table, .divTbl{
+
+	margin:0;
+
+}
+.divTbl{
+	border: 1px solid #aaaaaa;
+	border-top:0px none;
+}
+.divTbl_1{
+	border: 1px solid #aaaaaa;
+	border-top:0px none;
+	border-bottom:0px none;
+}
+#tradeDetailTbl td, #orderDetailTbl td{
+	color:#222222;
+	padding-left: 5px;	
+	 background: #e6ead5 url(images/ui-bg_flat_0_e6ead5_40x100.png) 50% 50% repeat-x; color: #222222;
+}
+
+#tradeDetailTbl  table a{
+	color:#0000FF!important;
+}
+
+.lt a{
+	color:#000000 !important;
+}
+.lt, .lb{
+	background-color:#E9E5D9!important;
+	color:#000000 !important;
+}
+
+.ltb{
+	background-color: #E9E5D9;
+	color: #000000;
+	font-weight: bold;
+	padding: 5px;	
+}
+
+.tl
+{
+	background-color:#FFFFFF!important;
+	color:#222222 !important;
+}
+.tlc
+{
+	background-color:#F7F7EF!important;
+	color:#222222 !important;
+}
+#coverTradesTbl td , 
+#coveredTradesTbl td , 
+#netTradesTbl td , 
+#nettedTradesTbl td ,
+#chainTradesTbl td , 
+#marketSnapshotTbl td , 
+#eventTimesSnapshotTbl td , 
+#spreadDetailsTbl td ,
+ 
+#OCOOrdersTbl td , 
+#CoverOrdersTbl td , 
+#CoveredOrdersTbl td ,
+#chainOrdersTbl td , 
+#VerifiedTradesTbl td ,
+#RejectedTradesTbl td ,
+#CancelledTradesTbl td 
+ {
+	padding:2px;
+}
+
+/* Help Marketsnapshots */
+
+#help{
+	color:#blue!important;
+}
+.helpmktSS{
+	color:#blue!important;
+}
+.helpmktSS ul{
+	margin:0 20px!important;
+	padding:0px;
+}
+
+/* Filter image */
+.filter	{display: inline-block; text-indent: -99999px; overflow: hidden;background:url("images/filter.png") no-repeat; background-repeat:no-repeat; width: 16px;height: 16px;}
+/* moved from filter.jsp */
+.checklist-select-value {
+    float:left;
+    height: 100%;
+    line-height: 19px;
+    overflow: hidden;
+    text-align: center;
+    width: 107px;
+}
+#grpBy div.mcdropdown, #grpBy div.mcdropdown input{
+    width:135px!important;
+}
+
+#grpBy div.mcdropdown a{
+    right:0px!important;
+}
+
+/* End of above classes for Trade/Order Details page */
+
+/* override birt hyperlink color  */
+table td a{color:#0000ff!important;}
+
+/* Added below classes for jqGrid */
+.ui-jqgrid .ui-jqgrid-titlebar{
+	padding:0 0 0 0.3em;
+}
+
+.ig-theme .ui-jqgrid-titlebar{
+	color:#666666;
+	background: url("images/ui-bg_flat_0_dddddd_40x100.png") repeat-x scroll 50% 50% #dddddd !important;
+	background-color:#dddddd;
+}
+
+.ig-theme .ui-jqgrid-title{
+	margin:0.6em 0.15em;
+}
+
+
+.ui-jqgrid .ui-jqgrid-bdiv {
+  position: relative; 
+  margin: 0em; 
+  padding:0; 
+  /*overflow: auto;*/ 
+  overflow-x:hidden; 
+  overflow-y:auto; 
+  text-align:left;
+ border-bottom: 1px solid #D3D3D3;
+}
+.ui-jqgrid .ui-userdata{
+	background: url("images/ui-bg_flat_0_efefef_40x100.png") repeat-x scroll 50% 50% #efefef;
+	border:0px none;
+}
+
+/* Table Header */
+.ig-theme .ui-jqgrid-htable{
+	border:#fff 1px solid;
+}
+
+.ui-jqgrid .ui-th-column{
+	background: url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #e6e6e6;
+	border:#fff 1px solid;
+}
+/* pagination */
+.ui-jqgrid .ui-jqgrid-pager, .ui-jqgrid .ui-pager-control, .ui-jqgrid .ui-jqgrid-toppager , .userdata{
+	background: url("images/ui-bg_flat_0_efefef_40x100.png") repeat-x scroll 50% 50% #efefef;
+	
+}
+
+.userdata{
+	border:1px solid #aaa;
+	border-top:0px;
+	padding:2px;
+}
+
+/* issue in IE black border between header and search textfield 
+ border-bottom: 1px solid #D3D3D3;
+*/
+.ui-jqgrid tr.ui-search-toolbar th { 
+	border-top: 0px none !important; 
+}
+
+ .ui-jqgrid.ui-widget-content .ui-state-default{
+	border-top:0px none;
+}
+.ui-jqgrid tr.jqgrow td {
+        white-space: normal !important;
+
+}
+
+.ig-theme tr.ui-row-ltr td{
+	border-right: 1px solid #ffffff;
+}
+
+#tradeStatistics  td, #orderStatistics  td{
+	background: #e6ead5 url(images/ui-bg_flat_0_e6ead5_40x100.png) 50% 50% repeat-x;
+	border-right: 1px solid #AAAAAA;
+}
+
+.ui-datepicker-today .ui-state-highlight{
+	 border: 1px solid #8c8a8c!important;
+}
+.ig-theme .ui-state-highlight{
+    background-color: #dadada;
+	background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #cccccc;
+}
+
+.ig-theme .ui-row-ltr {
+	background-color: #fff !important;
+
+}
+
+.ig-theme .ui-priority-secondary {
+	background-color: #f7f7ef !important;
+	opacity:1;
+}
+
+.ui-jqgrid .ui-userdata{
+/*	border-bottom: 1px solid #D3D3D3!important;
+*/
+}
+
+.ui-jqgrid tr.jqgroup td {
+	white-space: nowrap!important;
+}
+
+.ui-jqgrid .indentMe{
+  padding-left:30px!important;
+}
+
+/*  Customization of jqGrid ui-subgrid */
+.ui-subgrid{
+	background: #e6ead5 url(images/ui-bg_flat_75_e6ead5_40x100.png) 50% 50% repeat-x!important; 
+	color: #222222;	
+}
+
+.tablediv table{
+
+	background: #ededed url(images/ui-bg_flat_75_e6ead5_40x100.png) 50% 50% repeat-x!important;	
+}
+
+.ui-th-subgrid{
+	height:25px!important;
+	padding:0 2px;
+	vertical-align:middle;
+}
+
+.ui-subgrid table {
+
+	border-top: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+}
+
+.ui-subtblcell td, .ui-subtblcell th{
+	 padding:0 2px;
+	 background-color:#ffffff;
+	 vertical-align:middle;
+ }
+
+.tablediv table tr{
+	margin-top:5px;
+}
+
+
+/*  left border in table  */
+.ui-subgrid .subgrid-data{
+	border-left:0px;
+}
+.ui-subgrid table {
+	border: 1px solid #aaa;
+	border-bottom: 0px;
+}
+
+
+/* Setting page navigator to fit main grid  */
+#gbox_txnGraph #pager2,#gbox_txnGraphMktSnapshot #pager3{
+	width:100%!important;
+}
+
+#tNavID-Trade-Summary, #tNavID-Order-Summary, #tNavID-Trade-Volume, #tNavID-Trade-Statistics,#tNavID-Positions-Ccy{
+	width:96%;
+}
+
+#summary.ig-theme.lh, #executionResponse.ig-theme.lh, #clienttag.ig-theme.lh{
+	line-height: 1.3em;
+
+}
+
+#LeftPane tbody tr{
+    background-color: #FFFFFF;
+}
+
+/* Tabs reset */
+#tabs {
+	padding:0;
+}
+
+.ui-widget-header {
+	padding:0.05em 0 0.25em 0.3em;
+}
+.ig-p-header, #repCriteria, #birtpnl, #comppnl{
+	background: url("images/ui-bg_flat_0_dddddd_40x100.png") repeat-x scroll 50% 50% #dddddd !important;
+	line-height: 1.3;
+	padding:0.6em 0.4em;
+	margin:0;
+	color:#666666;
+}
+.ui-widget-header .ui-state-active{
+    background: url("images/ui-bg_glass_65_ffffff_1x400.png") repeat-x scroll 50% 50% #FFFFFF;
+    border: 1px solid #AAAAAA;
+    color: #212121;
+    font-weight: normal;
+}
+
+#repCriteria .ui-widget-header {
+	line-height: 1.7;
+	padding:0.2em 0.4em 0.4em;
+}
+
+#repH1{
+	display:inline-block;
+	width:96%;
+}
+
+#repH2{
+	text-align:right;
+	display:inline;
+}
+#repH2 span{
+	 background-image: url("images/ui-icons_888888_256x240.png");
+    height: 16px;
+    width: 16px;
+}
+#repMin{
+	display:inline-block;
+	cursor: pointer;
+	
+}
+
+#archives a{
+	
+	padding:2px;
+}
+
+/* BIRT report padding */
+#VolumeAll___bookmark_1 th, #StatisticsAll___bookmark_1 th, #DoneTradesAll___bookmark_1 th, #ProfitAll___bookmark_1 th, #PositionsAll___bookmark_1 th, #SettlementsAll___bookmark_1 th, #DoneTrades___bookmark_1 th, #OrdersVolumeAll___bookmark_1 th, #OrdersStatistics___bookmark_1 th, #OrdersAll___bookmark_1 th, #Events___bookmark_1 th, #EventsAggregatesAll___bookmark_1 th, #EventsTemplatesAll___bookmark_1 th, #TradingParties___bookmark_1 th, #CompareAll___bookmark_1 th, #IFXOrderDetailAll___bookmark_1 th
+{
+	text-align:left;
+	background-color:#E9E5D9;
+	padding:2px;
+}
+
+
+th[class*='Volume'] , th[class*='Statistics'] , th[class*='DoneTrades'], th[class*='Profit'] , th[class*='Positions'] , th[class*='Settlements'], th[class*='OrdersVolume'] , th[class*='Orders'] , th[class*='CompareAll'] , th[class*='TradingParties'] , th[class*='Users'] , th[class*='Portfolio'] , th[class*='EventsAll'] , th[class*='EventsAggregates'] , th[class*='EventsTemplatesAll'] ,th[class*='EventsTemplates'] , th[class*='Compare'], th[class*='Audit'] , th[class*='SpotExposure'] , th[class*='IFXOrderDetail'] {
+	text-align:left;
+	background-color:#E9E5D9;
+	padding:2px;
+}
+
+div[class*='Orders'] {
+	background-color:#E9E5D9;
+}
+
+
+#VolumeAll___bookmark_1 td, #StatisticsAll___bookmark_1 td, #DoneTradesAll___bookmark_1 td, #ProfitAll___bookmark_1 td, #PositionsAll___bookmark_1 td, #Settlements___bookmark_1 td, #DoneTrades___bookmark_1 td, #OrdersVolume___bookmark_1 td, #OrdersStatistics___bookmark_1 td, #Orders___bookmark_1 td, #Events___bookmark_1 td, #EventsAggregatesAll___bookmark_1 td, #EventsTemplatesAll___bookmark_1 td, #TradingParties___bookmark_1 td, #CompareAll___bookmark_1 td, #IFXOrderDetailAll___bookmark_1 td{
+
+	padding:2px;
+}
+
+
+td[class*='Volume'] , td[class*='Statistics'] , td[class*='DoneTrades'], td[class*='Profit'] , td[class*='Positions'] , td[class*='Settlements'], td[class*='OrdersVolume'] , td[class*='Orders'] , td[class*='TradingParties'] , td[class*='Users'] , td[class*='Portfolio'], td[class*='EventsAll'], td[class*='EventsAggregates'], td[class*='EventsTemplatesAll'], td[class*='Compare'], td[class*='Audit'], td[class*='SpotExposure'], td[class*='IFXOrderDetail'] {
+	padding:2px;
+}
+
+
+th[class*='VolumeAll'], th[class*='Volume'], td[class*='Volume'], th[class*='Positions'], td[class*='Positions'], th[class*='DoneTrades'], td[class*='DoneTrades'], th[class*='TradingParties'], td[class*='TradingParties'], th[class*='Statistics'], td[class*='Statistics'], th[class*='StatisticsAll'], th[class*='Orders'], td[class*='Orders'], th[class*='Profit'], td[class*='Profit'], th[class*='Settlements'], td[class*='Settlements'], th[class*='Users'], td[class*='Users'], th[class*='Portfolio'], td[class*='Portfolio'], th[class*='EventsAll'], td[class*='EventsAll'], th[class*='EventsAggregates'], td[class*='EventsAggregates'], th[class*='EventsTemplatesAll'], td[class*='EventsTemplatesAll'], th[class*='EventsTemplates'], td[class*='EventsTemplates'], th[class*='Compare'], td[class*='Compare'], th[class*='SpotExposure'], td[class*='SpotExposure'], th[class*='Audit'], td[class*='Audit'], th[class*='IFXOrderDetail'], td[class*='IFXOrderDetail']{
+	white-space: nowrap;
+}
+
+th[class*='DoneTrades'], th[class*='Orders'], th[class*='IFXOrderDetail']{
+	color:#0000ff!important;
+}
+
+/* Spot-Exposure-Yields & SpotExposureProfitYieldsDebug */
+th[class^="SpotExposureProfitYields"][class$="style_10"], th[class^="SpotExposureProfitYieldsDebug"][class$="style_12"]
+{
+	color:#000000!important;
+}
+
+
+
+
+#VolumeAll_style_11 th {
+	font-weight: normal!important;
+}
+
+.OrdersStatisticsAll_style_9{
+	text-decoration: underline;	
+}
+
+#VolumeAll___bookmark_1 td.VolumeAll_style_12
+{
+	border-color: #ccc;
+    border-style: solid;
+    border-width: 1px 0;
+}
+
+#VolumeAll___bookmark_1 tr{
+	border-color: #999999;
+    border-style: solid;
+    border-width: 0 1px;
+}
+
+#eodRates td{
+	padding:2px;
+}
+
+.Trend_outl
+{
+	border:1px solid #999999;
+	border-top:0px;
+	width:100%;
+}
+
+/* button div position */
+.ig-btn-div{
+	margin:0;
+	vertical-align:bottom;
+}
+
+.ig-btn-div .left {
+	float:left;
+	display:inline;
+	width:20%;
+	line-height:22px;
+}
+.ig-btn-div .left img{
+	vertical-align:bottom;
+	padding:0 2px;
+}
+.ig-btn-div .right{
+	float:right;
+	display:inline;
+	width:75%;
+	text-align:right;
+	vertical-align:bottom;	
+}
+.ig-btn-div .right img{
+	vertical-align: text-bottom;
+}
+
+#iconPlus img{
+	left: 0px;
+    width: 16px;
+    height: 16px;
+	background: url(images/plus.png) 0 0 no-repeat;
+	vertical-align: text-bottom;
+}
+#iconPlus img:hover{
+	left: 0px;
+    width: 16px;
+	background: url(images/plus_over.png) 0 0 no-repeat;
+}
+
+#iconfav_white img{
+	left: 0px;
+    width: 16px;
+    height: 16px;
+	background: url(images/fav_white.png) 0 0 no-repeat;
+	vertical-align: text-bottom;
+}
+#iconfav_white img:hover{
+	left: 0px;
+    width: 16px;
+	background: url(images/fav_white_over.png) 0 0 no-repeat;
+}
+
+#iconfav_yellow img{
+	left: 0px;
+    width: 16px;
+    height: 16px;
+	background: url(images/fav_yellow.png) 0 0 no-repeat;
+	vertical-align: text-bottom;
+}
+#iconfav_yellow img:hover{
+	left: 0px;
+    width: 16px;
+	background: url(images/fav_yellow_over.png) 0 0 no-repeat;
+}
+
+
+.ui-widget-content { border: 1px solid #aaaaaa; 
+background: #f7fbe5 url(images/ui-bg_flat_75_f7fbe5_40x100.png) 50% 50% repeat-x; 
+color: #222222; }  
+body.ui-widget-content{ background-color: #ffffff}
+
+#LeftPane tbody tr, #LeftPane{
+    background-color: #E6E6E6;
+}
+
+/*  Navigation table border */
+#LeftPane .ui-widget-content{
+	background-color:#E6E6E6;
+	background: #E6E6E6 url(images/ui-bg_flat_0_e6e6e6_40x100.png) 50% 50% repeat-x; color: #222222;
+}
+#LeftPane .ui-widget-content{
+	border:0px solid #E6E6E6;
+}
+
+#LeftPane .ui-state-highlight, #LeftPane .ui-state-hover{
+background-color: #e6e6e6;
+background: #e6e6e6 url(images/ui-bg_glass_10_999999_1x400.png) 50% 50% repeat-x;
+}
+#LeftPane  .ui-jqgrid-titlebar{
+	border:1px solid #aaaaaa;
+	height:24px;
+	padding-top:5px;
+}
+
+
+#LeftPane  .ui-jqgrid .ui-jqgrid-bdiv {
+  position: relative; 
+  margin: 8px 0;
+  padding:0; 
+  /*overflow: auto;*/ 
+  overflow-x:hidden; 
+  overflow-y:auto; 
+  text-align:left;
+ border-bottom: 0px solid #ffffff;
+}
+
+.ui-widget-content .doutl{
+	border-top:0px none;
+}
+/* Tab issue for blank space below selected tab */
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+	padding-bottom: 0px;
+}
+
+/*
+------------------------------
+	msg
+------------------------------
+*/
+.msgwarning .msg{ background-color: #FFFFFF; }
+.msgfade{
+	position: absolute;
+	background-color: #ffffff;
+}
+div.msg{
+    width: 400px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; position: absolute; font-size: 1.20em; text-align: left;background-color: #FFFFFF; border: solid 1px #cccccc; -moz-border-radius: 4px; border-radius: 4px; padding: 7px;
+}
+div.msg .msgclose{
+	display:none;	position: absolute; top: 11px; right: 11px; width: 18px; cursor: default; text-align: center; padding: 2px 0 4px 0; color: #B8EC79; font-weight: bold; background-color: #000000; 
+	-moz-border-radius: 5px; 
+	border-radius: 5px; 
+}
+div.msg .msgclose:hover{
+	background-color: #303030;color:#96f226;
+}
+
+div.msg .msgcontainer{
+	font-weight: bold;
+}
+
+div.msg .msgstates{
+	background: url("images/ui-bg_flat_75_f7fbe5_40x100.png") repeat-x scroll 50% 50% #F7FBE5;	
+}
+
+div.msg .msgmessage{
+	padding: 0px; line-height: 20px; color: #ff0000; border:1px solid #aaaaaa;border-bottom:0px;
+}
+
+div.msg .msgmessage h3{
+	background: url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;	
+	margin: 0;
+	padding: 3px 0 3px 5px;
+	border-bottom: 1px solid #aaaaaa;
+	color: #666666;
+}
+
+div.msg .msgmessage p.info{
+	color:#333333;
+}
+
+div.msg .msgmessage p, div.msg .msgmessage  .field {
+	padding:0 5px;
+	font-weight:normal;
+	background: url("images/ui-bg_flat_75_f7fbe5_40x100.png") repeat-x scroll 50% 50% #F7FBE5;
+}
+
+div.msg .msgmessage .p5{
+	padding:5px;
+}
+
+div.msg .msgmessage .normal{
+	padding:5px;
+	color:#222222!important;
+	font-family:Verdana,Arial,sans-serif;
+	line-height:13px;
+	font-size: 1em;
+}
+
+div.msg .msgmessage input, div.msg .msgmessage select, div.msg .msgmessage textarea{
+	font-family:Verdana,Arial,sans-serif;
+	line-height:13px;
+	font-size: 1em;
+}
+
+div.msg .msgmessage .normal label{
+	width:30%;
+}
+
+div.msg .msgmessage .normal textarea{
+	width:95%;
+}
+
+div.msg .msgmessage label{
+	width:49%;		/* can be changed to px */
+	display:inline-block;
+}
+
+div.msg .msgbuttons{ text-align: right; padding: 5px 0 5px 0; border: solid 1px #aaaaaa; border-top:0px;
+background: url("images/ui-bg_flat_75_f7fbe5_40x100.png") repeat-x scroll 50% 50% #F7FBE5;
+}
+
+div.msg button{ padding: 1px 10px; margin: 0 5px;
+background: url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #E6E6E6; border: solid 1px #D3D3D3; color: #333333; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 1em;  letter-spacing: 1px;	line-height: 1.4;	
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+
+div.msg button:hover{
+	background: url("images/ui-bg_glass_75_dadada_1x400.png") repeat-x scroll 50% 50% #DADADA;
+	background-color: #DADADA;
+	border: solid 1px #999999;
+	color: #212121;
+}
+
+
+/* ProviderRank ProviderRank-Composite */
+
+#providerRank{
+	background-color:#1d3952;
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	font-family:Tahoma, Verdana; font-weight:normal; font-size:1.5em;
+	border:1px solid #AAAAAA;
+	border-top:0px;
+}
+
+#providerRank a{
+	color:#a1a1ed!important;
+	text-decoration: underline; 	
+}
+#div_outl{
+	width:620px;
+	margin:auto;
+	border:1px solid #ccc;
+	 -moz-border-radius: 5px; border-radius: 5px;
+}
+
+#hdr{
+	background: url("images/logo_header.png") repeat-x scroll 50% 50% #2c4c6c;
+	text-align:left;
+	height:93px;
+	 -moz-border-radius: 5px; border-radius: 5px;
+}
+
+#org_name{
+	padding:32px 0 0 250px;
+	font-size:1.5em;
+	text-transform:uppercase;
+	letter-spacing:1px;	
+}
+
+#hdr .dt,  .dt{
+	padding:0 40px 0 0;	
+	text-align:right;
+	font-size:70%;
+}
+
+
+#top_bg{
+	background: url("images/proRank_top.png") repeat-x scroll 50% 50% #2c4c6c;
+	height:26px;
+}
+#mid_bg{
+	background: url("images/proRank_mid.png") repeat-y scroll 50% 50% #2c4c6c;
+	text-align:left;
+	color:#fff;	
+	display:inline-block;
+}
+#btm_bg{
+	background: url("images/proRank_btm.png") repeat-y scroll 50% 50% #2c4c6c;
+	color:#fff;	
+	height:26px;
+}
+
+
+#outl_bg{
+	background: url("images/proRank_outl.png") repeat-y scroll 50% 50% #2c4c6c;
+	height:10px;
+	
+}
+
+#rankleft{
+	float: left;
+	display:inline;	
+	width:40%;
+	border:0px solid #aaa;
+}
+#rank{
+	padding: 0 30px;
+	display:inline-block;
+	
+}
+#rankright{
+	float: right;
+	display:inline;	
+	width:59%;
+	border:0px solid #aaa;
+	text-align:center;
+}
+
+
+.hd1{
+	font-size:120%;
+	text-transform:uppercase;
+	letter-spacing:2px;
+}
+
+#rank .pos{
+	font-size:280%;
+	font-weight:bold;
+	text-align:center;
+}
+
+.txt{
+	font-size:80%;
+
+}
+
+#providerRank  .spc, #providerRank   .space {
+   margin: 15px;
+   padding: 0px 50px;
+   line-height: 0;
+   clear: both;
+   border:1px solid #0d1c28;
+}
+
+
+#providerRank  hr{
+	display: block; height: 1px;
+    border: 0; border-top: 1px solid #0d1c28;
+    margin: 1em 0; padding: 0;
+	width:100%;
+}
+
+.ccy_tbl{
+    display:table;
+    width:100%;
+    border-collapse: collapse;
+	color:#333;
+    }
+ .ccy_h, .ccy_r{
+     display:table-row;
+     text-align: center;
+     line-height: 25px;
+     background-color:#FFF;
+ }
+ 
+ .ccy_r{
+	background-color:#e8eefa;
+ }
+
+ .col{ 
+	display:table-cell;
+	border: 1px solid #CCC;
+	width:50%;
+ }
+
+.col  span {
+	text-align:left;
+	width:90px;
+	display:inline-block;
+	border:0px solid #000;
+}
+ 
+.ccypos {
+	padding-left:10px;
+	color: #b54932!important;
+	font-weight: bold;
+	}
+
+#ccy{
+	padding: 0 30px;
+	
+}
+
+#ccy ul{
+	padding: 0 10px;
+	
+}
+
+
+.disc{
+
+	color:#ccc;
+	font-size:70%;
+	width:620px;
+	margin:auto;
+}
+
+
+
+
+/* End of ProviderRank ProviderRank-Composite */
+		
+.jqmOverlay
+{
+	 opacity: 0.85!important;
+	 background-color:#ffffff;
+}	
+
+/* Above classes for imprompt plugin & jqGrid alerts */ 
+
+/* Link dropdown classes */
+
+
+#lnkDiv{
+	display:inline-block;
+}
+
+#lnkDiv .dropv, #lnkDiv .dropv ul {padding: 0; margin: 0; list-style: none;}
+#lnkDiv .dropv a {display: inline; width: 146px;}
+#lnkDiv .dropv li {display: inline;float: left; padding: 0px 8px 0px 0px;}  /* all list items */
+#lnkDiv .dropv li ul li {line-height:16px;}  /* all list items */
+#lnkDiv .dropv li ul {position: absolute; background:url(images/ui-bg_flat_75_f7fbe5_40x100.png) #f7fbe5 repeat-x 50% 50%; border:1px solid #aaaaaa; 
+  margin-left:15px; padding: 0px 0px 0px 0px; width: 150px; left: -9999px; font-weight:normal!important;} /* second-level lists */
+#lnkDiv .dropv li:hover ul {left: auto; } /* nest list under hovered list items */
+#lnkDiv li.divln {border-top:1px solid #aaaaaa; width:142px;} /* Dividing line between Orders & other links  */
+
+#lnkDiv .dropv li ul li a {color:#333333; text-decoration: none; display: block;padding-left:4px;}
+#lnkDiv .dropv li ul li a:hover {color: #000000; background:url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) #cccccc repeat-x 50% 50%;}
+
+.b1r	{
+	background: url("images/ui-bg_glass_75_cc0a0c_1x400.png") repeat-x scroll 50% 50% #cc0a0c!important;
+	color: white!important;
+	border:1px solid #CC0A0C!important;
+}
+
+/* Styling for Favorite style		*/
+
+
+.ui-icon-favfolder{
+	background-image: url('images/folder.png')!important;
+}
+.ig-btn-div .ui-menu{
+        position: absolute;
+        width: 84px;
+		margin-left:16px;	
+	
+	background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
+	border: 1px solid #d3d3d3;
+	color: #555555;
+}
+.ig-btn-div .ui-menu .ui-state-hover{
+	background: #e6e6e6 url("images/ui-bg_glass_75_dadada_1x400.png") repeat-x scroll 50% 50%;
+	border: 1px solid #999999;
+	color: #212121;
+}
+
+.ig-btn-div .ui-menu li{
+	border-bottom: 1px solid #d3d3d3;
+}
+.ig-btn-div .ui-menu li:last-child{
+	border-bottom: 0px solid #999999;
+}
+
+.ig-btn-div .ui-menu li a{
+	color: #555555!important;
+}
+.ig-btn-div .ui-menu li a:hover{
+	color: #212121!important;
+}
+
+.ui-menu .ui-menu-item{
+	text-align:left;
+}
+
+.ui-button .ui-icon-pareeksha-fav-yellow{
+	background-image: url('images/fav_yellow.png');
+}
+
+.ui-button .ui-icon-pareeksha-fav-white{
+	background-image: url('images/fav_white.png');
+}
+
+.ui-icon-favfolderCollapse{
+     background-image: url('images/fav_folder.png')!important;
+}
+
+
+.ui-icon-favfolderOpen{
+	background-image: url('images/fav_folder_open.png')!important;
+}
+
+
+.t	{color: #B3853F;font-family: tahoma, verdana, arial, sans-serif;font-size: 11pt;font-style: normal;font-weight: bold;text-decoration:none;padding-bottom: 10px;}
+
+
+/* Dropdown checkbox class */
+.checkboxDropDownLabel, 
+.checkboxDropDownLabel:visited {
+    color:#000;
+    text-decoration:none;
+    outline:none;
+    font-size: 12px;
+    font: 11px Arial,Helvetica,sans-serif;
+	cursor: pointer;
+}
+.checkboxDropDownLabel {
+    background-color:#fff;
+    display:inline-block;
+    overflow: hidden;
+	border: 0px solid #7a7a7a;
+    width:230px;
+	height:18px;
+	cursor: pointer;
+}
+.checkboxDropDownLabelDiv{
+	display:inline-block;
+    border: 1px solid #7a7a7a;
+    background-color: #fff;
+    height:18px;	
+}
+.checkboxDropDownImageSpan{
+	display:inline-block;
+	float:right;
+}
+.checkboxDropDownImageSpan img{
+	width:15px;
+	background: transparent url(images/mcdd_select_button_sprite.gif) no-repeat top left;
+	height: 18px;
+	width: 15px;
+	cursor: pointer;
+}
+.checkboxDropDownImageSpan img:hover, .checkboxDropDownImageSpan img:focus{
+	background-position: 0% -16px;
+}
+.checkboxDropDownImageSpan img:active{
+	background-position: 0% -32px;
+	outline: none;
+}
+
+.checkboxDropDownUL {
+    background-color: #fff;
+    border: 1px solid #7a7a7a;
+    color:#000;
+    display:none;
+    left:-1px;
+    padding: 2px 15px 2px 5px;
+    position:relative;
+    top:-3px;
+    width:auto;
+    list-style:none;
+    height: 100px;
+    overflow: auto;
+    font: 11px Arial,Helvetica,sans-serif;
+}
+/* Dropdown checkbox class ends */
+
+/* Reference -> Cpty Groups class */
+.d_c4{
+	clear: both;
+	height:20px;
+}
+.d_c4_1{
+	padding:1px 3px;
+	display:inline;
+	float:left;
+	width:20%;
+}
+.d_c4_2{
+	padding:1px;
+	display:inline;
+	float:left;
+	width:30%;
+}
+.d_c4_3{
+	padding:1px;
+	display:inline;
+	float:left;
+	width:10%;
+}
+.d_c4_4{
+	padding:1px;
+	display:inline;
+	float:left;
+	width:34%;
+}
+
+.d_c4_3 button{
+	margin:1px 22px;
+}
+#cptyList, #userList{
+	clear:both;
+	height:125px;
+}
+
+/*  customized icons as per requirement for Reference -> Cpty Groups section  */
+
+.ui-icon-moveall, .moveall {
+    background-image: url(images/icon_move_all.png)!important;
+}
+
+.ui-icon-move, .moveright {
+    background-image: url(images/icon_move.png)!important;
+}
+.ui-icon-remove, .removeright {
+    background-image: url(images/icon_remove.png)!important;
+}
+.ui-icon-removeall, .removeall  {
+    background-image: url(images/icon_remove_all.png)!important;
+}
+
+.moveall, .moveright, .removeall, .removeright {
+    background-repeat: no-repeat!important;
+	padding: 2px 6px;
+
+}
+
+.addNewRow{
+ 	background-image:url(images/icon_plus.png)!important; 
+ 	background-repeat: no-repeat!important; 
+	background-position: 50% 50%;
+
+}
+
+.removeNewRow{
+ 	background-image:url(images/icon_minus.png)!important; 
+	background-position: 50% 50%;
+	background-repeat: no-repeat!important; 
+
+}
+
+/* Reference -> Cpty Groups class  ends */
+
+.ui-autocomplete { height: 200px; overflow-y: scroll; overflow-x: hidden;}
+
+/* MIFID  popup page*/
+
+.mif {
+	margin: 0;
+	padding: 5px;
+    font-size: 90%;
+	font-family: Verdana,Arial,sans-serif; 
+	
+}
+
+.mif div.ui-widget-header{
+	padding: 3px;
+	padding-left: 5px;
+    height: 15px;
+    border-bottom: 0px;
+}
+
+#mifIdRegFieldsTbl td, .mif td{
+	padding: 1px;
+	padding-left: 2px;
+	height: 16px;
+    width: 50%; /* 
+	background-color:#F7F7EF!important;.tlc */
+	color:#222222;
+}
+
+#mifIdRegFieldsTbl tr:nth-child(odd), .mif tr:nth-child(odd){
+	background-color: #ffffff;
+}
+
+#mifIdRegFieldsTbl tr:nth-child(even), .mif tr:nth-child(even){
+	background-color: #F7F7EF;
+}			
+
+
