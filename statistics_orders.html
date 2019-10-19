@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+</head>
+<body>
+
+<h2>Rolled up Order Statistics By Ccy Pair</h2>
+<p>This could be further sliced and diced along other dimensions or even Pivoted.</p>
+
+<table>
+  <tr>
+  <th>Ccy Pair</th>
+  <th>Placed Orders</th>
+  <th>Filled Orders</th>
+  <th>Cancelled Orders</th>
+  <th>Limit Orders</th>
+  <th>Market Orders</th>
+  <th>Stop Orders</th>
+  <th>Filled Percent (by Volume)</th>
+  </tr>
+
+  <tr>
+  <td>BTC/USD</td>
+  <td>100</td>
+  <td>90</td>
+  <td>10</td>
+  <td>80</td>
+  <td>15</td>
+  <td>5</td>
+  <td>85.6</td>
+  </tr>
+  <tr>
+    <td>ETH/USD</td>
+    <td>1000</td>
+    <td>850</td>
+    <td>150</td>
+    <td>750</td>
+    <td>150</td>
+    <td>100</td>
+    <td>90.6</td>
+  </tr>
+  <tr>
+        <td>BTC/ETH</td>
+        <td>2000</td>
+        <td>1600</td>
+        <td>400</td>
+        <td>1000</td>
+        <td>800</td>
+        <td>200</td>
+        <td>70.6</td>
+        </tr>
+</table>
+
+</body>
+</html>
