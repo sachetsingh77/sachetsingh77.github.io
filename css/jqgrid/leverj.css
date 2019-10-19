@@ -1346,6 +1346,9 @@ div.msg button:hover{
 
 #mifIdRegFieldsTbl tr:nth-child(even), .mif tr:nth-child(even){
 	background-color: #F7F7EF;
-}			
+}	
+#RightPane .ui-widget-content{
+	background: #ffffff;
+}		
 
 
