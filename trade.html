@@ -1,1 +1,52 @@
-Trade Page
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<h2>Leverj Trading Screen</h2>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Book Depth</h2>
+    <p>Display Buy/Sell Book depths for selected ccy pair</p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Order Entry Panel</h2>
+    <p>For selected ccy pair, trader enters Order and selects Limit/Market/Stop etc.</p>
+  </div>
+</div>
+<div class="row"></div>
+  <div class="column" style="background-color:#ccc;">
+    <h2>Order Status Panel</h2>
+    <p>Filled Cancelled etc.</p>
+  </div>
+  <div class="column" style="background-color:#ddd;">
+    <h2>Charts</h2>
+    <p>Time series, OCLH etc</p>
+  </div>
+</div>
+
+</body>
+</html>
