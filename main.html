@@ -38,7 +38,7 @@
 				{ Id: 1, Label: "Custom Field 2", LastUpdatedDate: "10/02/2012" }]
 		};
 
-		var navigationStr = '{"rows":[{"id":"NavID-Trade","parent_id":"null","name":"Trade","level":"0","parent":"null","isLeaf":"false","loaded":"true","expanded":"true", "url":"trade.html"},{"id":"NavID-Stake","parent_id":"null","name":"Stake","level":"0","parent":"null","isLeaf":"true","loaded":"true","expanded":"false", "url":"stake.html"},{"id":"NavID-Plasma","parent_id":"null","name":"Gluon Plasma","level":"0","parent":"null","isLeaf":"false","loaded":"true","expanded":"true"}]}';
+		var navigationStr = '{"rows":[{"id":"NavID-Trade","parent_id":"null","name":"Trade","level":"0","parent":"null","isLeaf":"false","loaded":"true","expanded":"true", "url":"trade.html"},{"id":"NavID-Stake","parent_id":"null","name":"Stake","level":"0","parent":"null","isLeaf":"true","loaded":"true","expanded":"false", "url":"stake.html"},{"id":"NavID-Plasma","parent_id":"null","name":"Gluon Plasma","level":"0","parent":"null","isLeaf":"false","loaded":"true","expanded":"false"},{"id":"NavID-Plasma-AccountInfo","parent_id":"NavID-Plasma","name":"Account Info","level":"1","parent":"NavID-Plasma","isLeaf":"true","loaded":"true","expanded":"false", "url":"gluon_account_info.html"},{"id":"NavID-Plasma-AccountAction","parent_id":"NavID-Plasma","name":"Account Action","level":"1","parent":"NavID-Plasma","isLeaf":"true","loaded":"true","expanded":"false", "url":"gluon_account_action.html"},{"id":"NavID-Plasma-AccountAllEntries","parent_id":"NavID-Plasma","name":"All Entries","level":"1","parent":"NavID-Plasma","isLeaf":"true","loaded":"true","expanded":"false", "url":"gluon_account_entries.html"}]}';
 
 
 		jQuery(document).ready(function () {
@@ -197,14 +197,14 @@
 	<div id="NorthPane" class="ui-layout-north">
 		<div id="brand-area">
 			<div id="brand">
-				<img id="leverjLogo" href="#" height="50px" width="150px;" src="logo2x.png"></img>
+				<img id="leverjLogo" href="#" height="50px" width="150px;" src="logo2x.png">
 			</div>
-			<div style="font-size: 2em;">Fastest Decentralized Exchange Powered By Gluon Plasma</div>
+			<div style="font-size: 2em;/* border: 1px solid #000; */display: inline-block;padding-top:20px;" id="mid">Fastest DEX Powered By Gluon Plasma</div>
 			<div id="right">
 		
 				<ul>
 			
-					<li><img id="" height="50" width="50" src="gluon.png" /></li>
+					<li><img id="" height="50" width="50" src="gluon.png"></li>
 					<li><a href="" target="_blank">Help</a>&nbsp;|</li>
 					<li><a href="" target="_top">Logout</a></li>
 					
