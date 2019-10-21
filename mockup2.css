@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Verdana, Tahoma;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 2px;
+  background: #efefef;
+  color: white; 
+  display: flex;
+}
+
+.hdr{
+  display: flex; 
+  padding:0px;
+  width: 100%;
+  height: 60px;
+}
+
+.hdr_left{     
+  display: flex; 
+  flex-direction: row;
+  flex: 1;
+  min-width: 350px;
+  background: lightgray;
+  color: #F98C00;
+  font-size: 26px;
+  padding: 5px;
+  border: 1px solid #efefef;
+}
+.hdr_right{ 
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  direction: rtl;
+  color: #5d7fe0;
+}
+
+.hdr_rTop{
+  justify-content: space-evenly;
+  -webkit-box-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+  margin: 5px 0;
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
+  min-width: 480px;
+  text-align: right;
+  border-right: 1px solid #5f0606;
+}
+.hdr_rTop a{
+  margin:0 15px;
+  text-decoration: none;
+}
+.hdr_rTop a:hover{
+  color: #F98C00;
+
+}
+
+.hdr_rTop span{
+  margin:0 5px 0 75px;
+  color: #000;
+}
+
+
+.hdr_rBtm{
+  border: 1px solid #cbd6f1;
+  background-color: #dce2f3;
+  color: #000;
+  text-align: center;
+  padding-top: 3px;
+}
+/* Style the top navigation bar */
+.navbar {
+  background-color: #000;
+  text-align:right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 0 0 350px;
+  background-color: #f1f1f1;
+  padding: 5px;
+  overflow:auto;
+  height:700px;
+}
+
+/* Main column */
+.main {
+  flex: 70%;
+  background-color: white;
+  padding: 5px;
+  height:700px;
+  overflow:auto;
+  border: 1px solid #000;
+}
+
+/* Content Area */
+.ttl{
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0.2em;
+}
+
+/* Ccy pair */
+.pair_row {
+  background-color: #ffffff;
+  width: 100%;
+  padding:  10px 10px;
+  height:40px;
+  margin-bottom:2px;
+  border:1px solid #ccc;
+  display: flex;
+}
+
+#showIcons {
+    display: none;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+.pair_row:hover #showIcons {
+    display:block;
+}
+.pair{
+
+    flex: 1;
+    display: flex;
+}
+.rate{
+
+    display: flex;
+    text-align: right;
+}
+
+.curPr{
+    padding-left:10px;
+    border:0px solid #000;
+}
+/* scroll classes */
+.scr_ccr{
+  padding:0 5px;
+  border-right: 1px solid #193da0;
+}
+
+/* General classes */
+.g{
+    color: #0ead0e;
+}
+
+.gd{
+  color: #078307;
+}
+
+.r{
+    color: #ad130e;
+}
+
+.bld{
+  font-weight: bold;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row  {   
+    flex-direction: column;
+  }
+}

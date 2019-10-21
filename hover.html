@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>test pijaku</title>
+<script type="text/javascript">
+    a = {
+        show: function(elem, src) {
+            //document.getElementById(elem).style.visibility = 'visible';
+            var target = document.getElementById(elem);
+            target.style.visibility = '';
+            var source = document.getElementById(src);
+            console.log(source.outerHTML + ',' + target.outerHTML);
+            source.appendChild(target);
+        },
+        hide: function(elem) {
+            document.getElementById(elem).style.visibility = 'hidden';
+        }
+    }
+</script>
+ 
+</head>
+ 
+<body>
+<ul>
+    <li onMouseOver="a.show('div1', 'line1')" onMouseOut="a.hide('div1')" id="line1">line 1</li>
+    <li onMouseOver="a.show('div2', 'line2')" onMouseOut="a.hide('div2')" id="line2">line 2</li>
+</ul>
+<p name="a" id="div1" style="height: 50px; width: 200px;background-color: green;position: relative; visibility: hidden;"></p>
+<p name="a" id="div2" style="height: 50px; width: 200px;background-color: blue;position:relaive;visibility: hidden;"></p>
+ 
+ 
+</body>
+</html>
