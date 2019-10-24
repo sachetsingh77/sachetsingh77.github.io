@@ -1,4 +1,5 @@
 <script>
+    
                                 function showNavMenu(){
                                   console.log('show Nav Menu');
                                   var menuDivs = document.getElementsByClassName('c0198 c01105');
@@ -13,4 +14,6 @@
                                   console.log(menuDiv.style.display);
 
                                 }
+                                var mainMenu = document.getElementById("mainMenu");
+                                mainMenu.addEventListener("click", showNavMenu);
                                 </script>
