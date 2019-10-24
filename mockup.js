@@ -1,5 +1,5 @@
 
-
+$(document).ready(function(){
     function showNavMenu(){
         console.log('show Nav Menu');
         var menuDivs = document.getElementsByClassName('c0198 c01105');
@@ -16,3 +16,6 @@
     var mainMenu = document.getElementById("mainMenuNav");
     console.log('mainMenuNav ' + mainMenu.class);
     mainMenu.addEventListener("click", showNavMenu);
+});
+
+    
