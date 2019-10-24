@@ -14,6 +14,7 @@
                                   console.log(menuDiv.style.display);
 
                                 }
-                                var mainMenu = document.getElementById("mainMenu");
+                                var mainMenu = document.getElementById("mainMenuNav");
+                                console.log('mainMenuNav ' + mainMenu.class);
                                 mainMenu.addEventListener("click", showNavMenu);
                                 </script>
