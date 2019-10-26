@@ -139,7 +139,7 @@
                                 </td>
                             </tr>
                             <tr v-bind:id="'in_flight_funds_aggregate_' + asset_fund.asset" class="wallet">
-                                <td v-bind:id="'in_flight_funds_showhide_' + asset_fund.asset" class="icon icon-plasma">
+                                <td v-bind:id="'in_flight_funds_showhide_' + asset_fund.asset" v-bind:data-symbol="asset_fund.asset" class="icon icon-plasma showHideFundDetails">
                                     IN FLIGHT</td>
                                 <td class="amount">{{asset_fund.in_flight_funds_aggregate.main_chain_balance}}</td>
                                 <td class="amount">{{asset_fund.in_flight_funds_aggregate.plasma_chain_balance}}</td>
@@ -219,10 +219,10 @@
         })
         $(document).ready(function () {
             
-            $("#in_flight_funds_showhide_ETH").bind("click", function () {
-                console.log('Toggle show/hide of In-Flight details');
+            $(".showHideFundDetails").bind("click", function () {
                 //$("#in_flight_funds_showhide_ETH").removeClass("icon-plasma").addClass("icon-wallet");
-                $("#in_flight_funds_details_ETH").toggle(500);
+                console.log("showHide " + $(this).attr("data-symbol"));
+                $("#in_flight_funds_details_" + $(this).attr("data-symbol")).toggle();
     
             });
             setTimeout(function () {
