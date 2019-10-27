@@ -336,6 +336,7 @@
 			</div>
 
 		</div>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<script>
 			myPortfolio = new Vue({
@@ -364,48 +365,56 @@
 							},
 							inFlightDetails : [
 								{
+									logId : "1234567",
 									myWalltetStatus: "Pending",
 									myWalletBalance: "+10.320",
 									plasmaBalance: "-9.732",
 									plasmaStatus: "Pending"
 								},
 								{
+									logId : "2345678",
 									myWalltetStatus: "Pending",
 									myWalletBalance: "+ 90.320",
 									plasmaBalance: "4,000,000",
 									plasmaStatus: "Pending"
 								},
 								{
+									logId : "3456789",
 									myWalltetStatus: "",
 									myWalletBalance: "",
 									plasmaBalance: "-18.132",
 									plasmaStatus: "Ready"
 								},
 								{
+									logId : "3454444",
 									myWalltetStatus: "",
 									myWalletBalance: "",
 									plasmaBalance: "-3.702",
 									plasmaStatus: "Ready"
 								},
 								{
+									logId : "56789",
 									myWalltetStatus: "",
 									myWalletBalance: "",
 									plasmaBalance: "+ 346.000",
 									plasmaStatus: "Pending"
 								},
 								{
+									logId : "78901",
 									myWalltetStatus: "",
 									myWalletBalance: "",
 									plasmaBalance: "+2.000",
 									plasmaStatus: "Pending"
 								},
 								{
+									logId : "98765",
 									myWalltetStatus: "",
 									myWalletBalance: "",
 									plasmaBalance: "+ 22.405",
 									plasmaStatus: "Pending"
 								},
 								{
+									logId : "846575",
 									myWalltetStatus: "",
 									myWalletBalance: "",
 									plasmaBalance: "-4.702",
@@ -432,33 +441,46 @@
 							},
 							inFlightDetails : [
 								{
+									logId : "555555",
 									myWalltetStatus: "Pending",
-									myWalletBalance: "+10.320",
-									plasmaBalance: "-9.732",
+									myWalletBalance: "+20.320",
+									plasmaBalance: "-29.732",
 									plasmaStatus: "Pending"
 								},
 								{
+									logId : "5555558877",
+									myWalltetStatus: "Pending",
+									myWalletBalance: "+2000.320",
+									plasmaBalance: "-19.732",
+									plasmaStatus: "Pending"
+								},
+								{
+									logId : "8888888",
 									myWalltetStatus: "",
 									myWalletBalance: "",
-									plasmaBalance: "-91.732",
+									plasmaBalance: "-71.732",
+									plasmaStatus: "Ready"
+								},
+								{
+									logId : "88888883355",
+									myWalltetStatus: "",
+									myWalletBalance: "",
+									plasmaBalance: "-7100.732",
 									plasmaStatus: "Ready"
 								}
 							]
 						}
 
 					]
-					/*fund_balances: [
-					  { asset: 'ETH',  main_chain_balance : '3.0188', main_chain_balance_USD : '$481.17', plasma_balance :'3.98000', plasma_balance_USD : '$751.46', plasma_in_orders : '0.2220', plasma_in_orders_USD : '$41.54', plasma_available : '3.76000', 
-					  plasma_available_USD : '$709.93'},
-					  { asset: 'USDT',  main_chain_balance : '12.0188', main_chain_balance_USD : '$1381.17', plasma_balance :'13.98000', plasma_balance_USD : '$1751.46', plasma_in_orders : '1.2220', plasma_in_orders_USD : '$41.54', plasma_available : '4.76000', 
-					  plasma_available_USD : '$709.93'},
-					  { asset: 'LEV',  main_chain_balance : '22.0188', main_chain_balance_USD : '$2381.17', plasma_balance :'23.98000', plasma_balance_USD : '$2751.46', plasma_in_orders : '2.2220', plasma_in_orders_USD : '$41.54', plasma_available : '5.76000', 
-					  plasma_available_USD : '$709.93'},
-					  { asset: 'DAI',  main_chain_balance : '32.0188', main_chain_balance_USD : '$3381.17', plasma_balance :'33.98000', plasma_balance_USD : '$3751.46', plasma_in_orders : '3.2220', plasma_in_orders_USD : '$41.54', plasma_available : '6.76000', 
-					  plasma_available_USD : '$709.93'}
-					]*/
+					
 				}
 			})
+			setTimeout(function () {
+				console.log("Vue Model Update");
+                myPortfolio.total_portfolio_valuation = "63,098 ETH ($6,008,000.00)"
+                myPortfolio.plasma_wallet_coins = "2,399.48 ETH ($65,432.75)"
+                myPortfolio.asset_funds[0].inFlightDetails[0].plasmaStatus = "Ready"
+            }, 5000);
 		</script>
 
 </body>
