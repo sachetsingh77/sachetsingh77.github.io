@@ -1,0 +1,250 @@
+<html>
+
+<head>
+    <title>Leverj | My Assets</title>
+    <meta name="description" content="Decentralized Leveraged Exchange">
+    <meta property="og:title" content="Leverj.io: Decentralized Leveraged Exchange">
+    <meta property="og:url" content="https://live.leverj.io">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="leverj.io">
+    <meta property="og:image" content="https://leverj.io/images/favicon/mstile-150x150.png">
+    <meta property="twitter:site" content="@leverj_io">
+    <meta property="twitter:img:src" content="https://leverj.io/images/favicon/mstile-150x150.png">
+    <meta property="og:description" content="Decentralized Leveraged Exchange">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+        content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+    <meta name="keywords" content="">
+    <meta name="copyright" content="">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="dns-prefetch" href="//live.leverj.io">
+    <link rel="dns-prefetch" href="//api.coinbase.com">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" id="leverjmincss" href="https://dev.leverj.io/leverj.min.css?rel=85e7c05f9d">
+    <link rel="stylesheet" type="text/css" id="vue_assets_css" href="vue_my_assets.css">
+</head>
+
+<body class="darkTBg">
+    <div id="myAssetsContainer" class="">
+        <div class="sidebar">
+            <div class="heading">
+                <h2>My Assets</h2>
+                <div>Total Portfolio Valuation</div>
+                <span id="portfolioBalance">{{total_portfolio_valuation}}</span>
+            </div>
+            <div class="wallets">
+                <div class="wallet">
+                    <h4><span class="icon icon-wallet"></span>My Wallet</h4>
+                    <div>
+                        <small>{{ether_wallet_coins}}</small>
+                    </div>
+                    <span class="balance" id="walletBalance">N/A</span>
+                </div>
+                <div class="wallet">
+                    <h4><span class="icon icon-plasma"></span>Gluon Plasma Sidechain</h4>
+                    <div>
+                        <small>Value of all coins</small>
+                    </div>
+                    <span class="balance" id="plasmaBalance">{{plasma_wallet_coins}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="close">
+                <i class="icon icon-close"></i>
+            </div>
+            <div class="main-header">
+                <div class="switcher">
+                    <div class="switch">
+                        <input type="radio" class="switch-input" name="view" value="funds" id="switch-funds" checked="">
+                        <label for="switch-funds" class="switch-label switch-label-off">Funds</label>
+                        <input type="radio" class="switch-input" name="view" value="transactions"
+                            id="switch-transactions">
+                        <label for="switch-transactions" class="switch-label switch-label-on">Transactions</label>
+                        <span class="switch-selection"></span>
+                    </div>
+
+                    <!-- <div class="switch">
+                                <input type="checkbox" name="" value="" id="hide-zero"> Hide 0 Balances
+                              </div> -->
+                </div>
+            </div>
+            <div id="view-funds">
+                <table border="0">
+                    <thead>
+                        <tr class="primary">
+                            <th colspan="2">
+                                <div class="wallet">
+                                    <span>Main Chain</span>
+                                    <h4>
+                                        <span class="icon icon-wallet"></span>
+                                        My Wallet
+                                    </h4>
+                                </div>
+                            </th>
+                            <th colspan="4">
+                                <div class="wallet">
+                                    <span>Sidechain</span>
+                                    <h4>
+                                        <span class="icon icon-plasma"></span>
+                                        Gluon Plasma
+                                    </h4>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="secondary">
+                            <th>Asset</th>
+                            <th class="rline">Balance</th>
+                            <th>Balance</th>
+                            <th>In Orders</th>
+                            <th>Available</th>
+                            <th>Manage Funds</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myAssetsFunds">
+                        <template v-for="asset_fund in asset_funds">
+                            <tr v-bind:id="'wallet-' + asset_fund.asset" class="wallet"
+                                v-bind:data-symbol="asset_fund.asset">
+                                <td>{{asset_fund.asset}}</td>
+
+                                <td class="main">
+                                    <div class="amount">{{asset_fund.fund_balance.main_chain_balance}}</div>
+                                    <span class="value">{{asset_fund.fund_balance.main_chain_balance_USD}}</span>
+                                </td>
+
+                                <td class="plasma">
+                                    <div class="amount">{{asset_fund.fund_balance.plasma_balance}}</div>
+                                    <span class="value">{{asset_fund.fund_balance.plasma_balance_USD}}</span>
+                                </td>
+
+                                <td class="inorder">
+                                    <div class="amount">{{asset_fund.fund_balance.plasma_in_orders}}</div>
+                                    <span class="value">{{asset_fund.fund_balance.plasma_in_orders_USD}}</span>
+                                </td>
+
+                                <td class="available">
+                                    <div class="amount">{{asset_fund.fund_balance.plasma_available}}</div>
+                                    <span class="value">{{asset_fund.fund_balance.plasma_available_USD}}</span>
+                                </td>
+
+                                <td>
+                                    <button type="button" class="primary add-fund">Deposit</button>
+                                    <button type="button" class="primary release-fund">Withdraw</button>
+                                </td>
+                            </tr>
+                            <tr v-bind:id="'in_flight_funds_aggregate_' + asset_fund.asset" class="wallet">
+                                <td v-bind:id="'in_flight_funds_showhide_' + asset_fund.asset" v-bind:data-symbol="asset_fund.asset" class="icon icon-plasma showHideFundDetails">
+                                    IN FLIGHT</td>
+                                <td class="amount">{{asset_fund.in_flight_funds_aggregate.main_chain_balance}}</td>
+                                <td class="amount">{{asset_fund.in_flight_funds_aggregate.plasma_chain_balance}}</td>
+                                <td colspan="3" id="'complete_withdrawals_' + asset_fund.asset"><span
+                                        class="green">Complete Withdrawals</span></td>
+                            </tr>
+                            <tr v-bind:id="'in_flight_funds_details_' + asset_fund.asset">
+                                <td colspan="2">
+                                    <table>
+                                        <tr v-for="txn in asset_fund.main_chain_in_flight_txns">
+
+                                            <td colspan="2">{{txn.status}} {{txn.amount}}</td>
+
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td colspan="4">
+                                    <table>
+                                        <tr v-for="txn in asset_fund.plasma_chain_in_flight_txns">
+                                            <td>{{txn.amount}} {{txn.status}}</td>
+                                            <td v-if="txn.status === 'Ready'"><span class="green">Complete
+                                                    Withdrawal</span></td>
+
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </template>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        
+        myPortfolio = new Vue({
+            el: '#myAssetsContainer',
+            data: {
+                total_portfolio_valuation: "22,098 ETH ($5,008,000.00)",
+                ether_wallet_coins: "1,000.56 ETH ($47,000.00)",
+                plasma_wallet_coins: "1,056.78 ETH ($46,766.00)",
+                asset_funds: [
+                    {
+                        asset: "ETH",
+                        fund_balance: { main_chain_balance: '3.0188', main_chain_balance_USD: '$481.17', plasma_balance: '3.98000', plasma_balance_USD: '$751.46', plasma_in_orders: '0.2220', plasma_in_orders_USD: '$41.54', plasma_available: '3.76000', plasma_available_USD: '$709.93' },
+                        in_flight_funds_aggregate: { main_chain_balance: "+100.320", plasma_chain_balance: "+4,000,000.320" },
+                        main_chain_in_flight_txns: [{ status: "Pending", amount: "+10,000.20" }, { status: "Pending", amount: "+90,000.20" }],
+                        plasma_chain_in_flight_txns: [{ status: "Pending", amount: "-9.732" }, { status: "Pending", amount: "+4,000,000.20" },
+                        { status: "Ready", amount: "-18.132" }, { status: "Ready", amount: "-3.732" }, { status: "Pending", amount: "+346.000" }, { status: "Pending", amount: "+4.20" }, { status: "Ready", amount: "-4.732" }]
+                    },
+                    {
+                        asset: "USDT",
+                        fund_balance: { main_chain_balance: '12.0188', main_chain_balance_USD: '$1381.17', plasma_balance: '13.98000', plasma_balance_USD: '$1751.46', plasma_in_orders: '1.2220', plasma_in_orders_USD: '$41.54', plasma_available: '4.76000', plasma_available_USD: '$709.93' },
+                        in_flight_funds_aggregate: { main_chain_balance: "+100.320", plasma_chain_balance: "+4,000,000.320" },
+                        main_chain_in_flight_txns: [{ status: "Pending", amount: "+100.20" }],
+                        plasma_chain_in_flight_txns: [{ status: "Pending", amount: "+200.20" }, { status: "Ready", amount: "+300.20" }]
+                    },
+                    {
+                        asset: "LEV",
+                        fund_balance: { main_chain_balance: '22.0188', main_chain_balance_USD: '$2381.17', plasma_balance: '23.98000', plasma_balance_USD: '$2751.46', plasma_in_orders: '2.2220', plasma_in_orders_USD: '$41.54', plasma_available: '5.76000', plasma_available_USD: '$709.93' },
+                        in_flight_funds_aggregate: { main_chain_balance: "+100.320", plasma_chain_balance: "+4,000,000.320" },
+                        main_chain_in_flight_txns: [{ status: "Pending", amount: "+100.20" }],
+                        plasma_chain_in_flight_txns: [{ status: "Pending", amount: "+200.20" }, { status: "Ready", amount: "+300.20" }]
+                    },
+                    {
+                        asset: "DAI",
+                        fund_balance: { main_chain_balance: '32.0188', main_chain_balance_USD: '$3381.17', plasma_balance: '33.98000', plasma_balance_USD: '$3751.46', plasma_in_orders: '3.2220', plasma_in_orders_USD: '$41.54', plasma_available: '6.76000', plasma_available_USD: '$709.93' },
+                        in_flight_funds_aggregate: { main_chain_balance: "+100.320", plasma_chain_balance: "+4,000,000.320" },
+                        main_chain_in_flight_txns: [{ status: "Pending", amount: "+100.20" }],
+                        plasma_chain_in_flight_txns: [{ status: "Pending", amount: "+200.20" }, { status: "Ready", amount: "+300.20" }]
+                    }
+                ]
+
+            }
+        })
+        console.log("$ log " + $("#myAssetsContainer").attr("id"));
+        /*$(document).ready(function () {
+            
+            $(".showHideFundDetails").bind("click", function () {
+                //$("#in_flight_funds_showhide_ETH").removeClass("icon-plasma").addClass("icon-wallet");
+                console.log("showHide " + $(this).attr("data-symbol"));
+                $("#in_flight_funds_details_" + $(this).attr("data-symbol")).toggle();
+    
+            });
+            setTimeout(function () {
+                myPortfolio.total_portfolio_valuation = "33,098 ETH ($6,008,000.00)"
+                myPortfolio.plasma_wallet_coins = "2,399.48 ETH ($65,432.75)"
+                myPortfolio.asset_funds[0].main_chain_in_flight_txns[0].status = "Ready"
+                myPortfolio.asset_funds[0].plasma_chain_in_flight_txns[0].status = "Ready"
+            }, 5000);
+        });*/
+        /*myPortfolioDummy = new Vue({
+            el : "#myAssetsContainer",
+            data : {
+                total_portfolio_valuation: "",
+                ether_wallet_coins: "",
+                plasma_wallet_coins: "",
+                asset_funds : []
+            } 
+        });*/
+
+    </script>
+
+</body>
+
+</html>
