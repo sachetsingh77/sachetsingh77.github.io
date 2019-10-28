@@ -39,15 +39,16 @@
         width:10%;
     }
     
+    .rc0{
+        background-color:#2a2b4a;
+    }
     .rc1{
     
         background-color:#62648f;	
         background-color:#44456b;
     }
     
-    .rc2{
-        background-color:#2a2b4a;
-    }
+    
     
     .rc3{
         background-color:#393a5a;
@@ -107,7 +108,12 @@
     .grn{
         color:#52cbc3;
     }
-    #myAssetFunds tr td table thead th .value {
+    .value {
         color: #b7bdc2;
         font-size: 12px;
     }
+    #myPortfolioFunds > :nth-child(odd)  {
+        background : #62648f
+    }
+    
+    

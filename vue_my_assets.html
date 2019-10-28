@@ -113,8 +113,9 @@
 								</th>
 							</tr>
 						</thead>
-						<template v-for="(asset_fund, index) in asset_funds">
-							<tr class="rc2">
+						<template v-for="(asset_fund, index) in asset_funds" v-bind:key="index">
+							<tr class="rc0">
+					
 								<td>
 									<table cellpadding="0" cellspacing="0" border="0" class="cw f15">
 										<thead>
@@ -139,9 +140,9 @@
 														width="24px"> </th>
 											</tr>
 										</thead>
-										<tr class="flight">
+										<tr class="flight" v-bind:id="'inFlightHeader_' + asset_fund.symbol">
 												<td>
-													<div class="ic"><img src="tri.png" width="12px" height="14px"></div>IN
+													<div class="ic toggleInFlight" v-bind:data-symbol="asset_fund.symbol"><img src="tri.png" width="12px" height="14px"></div>IN
 													FLIGHT
 												</td>
 												<td class="rline ar pr25">{{asset_fund.inFlightHeader.myWalletBalance}}</td>
@@ -150,7 +151,7 @@
 												<td><span class="grn">Complete Withdrawals</span></td>
 												<td class="ar"> </td>
 										</tr>
-										<tr v-for="detail in asset_fund.inFlightDetails">
+										<tr v-for="detail in asset_fund.inFlightDetails" class="inFlightDetails">
 												<td v-if="detail.myWalltetStatus === 'Pending'" class="ar"><img src="pending.png" height="12px" width="12px" hspace="5px">{{detail.myWalltetStatus}}</td>
 												<td v-if="detail.myWalltetStatus === 'Pending'" class="rline ar pr25">{{detail.myWalletBalance}}</td>
 												
@@ -171,170 +172,9 @@
 								</td>
 							</tr>
 						</template>
-						<!--
-						<tr class="rc2">
-							<td>
-								<table cellpadding="0" cellspacing="0" border="0" class="cw f12">
-									<thead>
-										<tr style="height:50px;">
-											<th class="al w15">
-												<div class="ic"><img src="d.png" width="16px" height="28px"></div>
-												<div style="display:inline-block;">
-													ETH <br>ETHER
-												</div>
-											</th>
-											<th class="rline w15 ar pr25 "> 1,000 <br>$250.00</th>
-											<th class="ar w18"> 0.999 <br>$256.89 </th>
-											<th class="ar w18">0.000 <br>$0.00</th>
-											<th class="ar w18"> 0.999 <br>$256.89</th>
-											<th class="ac w18"><img src="plus.png" height="24px"
-													width="24px">&nbsp;&nbsp;<img src="minus.png" height="24px"
-													width="24px"> </th>
-										</tr>
-									</thead>
-									<tr class="flight">
-										<td>
-											<div class="ic"><img src="tri.png" width="12px" height="14px"></div>IN
-											FLIGHT
-										</td>
-										<td class="rline ar pr25">+100,320</td>
-										<td class="ar">+4,000,000,000</td>
-										<td class="ac"></td>
-										<td><span class="grn">Complete Withdrawals</span></td>
-										<td class="ar"> </td>
-									</tr>
-									<tr style="height:30px;">
-										<td class="ar"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-										<td class="rline ar pr25">+10.000</td>
-										<td class="ar">-9.732</td>
-										<td colspan="3"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-									</tr>
-									<tr style="height:20px;">
-										<td class="ar"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-										<td class="rline ar pr25">+90.320</td>
-										<td class="ar">+4,000,000.000</td>
-										<td colspan="3"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-									</tr>
-									<tr style="height:20px;">
-										<td> </td>
-										<td class="rline"> </td>
-										<td class="ar">-18.132</td>
-										<td><img src="ready.png" height="12px" width="12px" hspace="5px">Ready</td>
-										<td colspan="2"><span class="grn">Complete Withdrawals</span></td>
-
-									</tr>
-									<tr style="height:20px;">
-										<td> </td>
-										<td class="rline"> </td>
-										<td class="ar">-3.702</td>
-										<td><img src="ready.png" height="12px" width="12px" hspace="5px">Ready</td>
-										<td colspan="2"><span class="grn">Complete Withdrawals</span></td>
-
-									</tr>
-									<tr style="height:20px;">
-										<td> </td>
-										<td class="rline"> </td>
-										<td class="ar">-18.132</td>
-										<td><img src="ready.png" height="12px" width="12px" hspace="5px">Pending</td>
-										<td colspan="2"><span class="grn">Complete Withdrawals</span></td>
-
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr class="rc1">
-							<td>
-								<table cellpadding="0" cellspacing="0" border="0" class="cw f12">
-									<thead>
-										<tr style="height:50px;">
-											<th class="al w15">
-												<div class="ic"><img src="d.png" width="16px" height="28px"></div>
-												<div style="display:inline-block;">
-													SNT <br>Status
-												</div>
-											</th>
-											<th class="rline w15 ar pr25 "> 1,000 <br>$250.00</th>
-											<th class="ar w18"> 0.999 <br>$256.89 </th>
-											<th class="ar w18">0.000 <br>$0.00</th>
-											<th class="ar w18"> 0.999 <br>$256.89</th>
-											<th class="ac w18"><img src="plus.png" height="24px"
-													width="24px">&nbsp;&nbsp;<img src="minus.png" height="24px"
-													width="24px"> </th>
-										</tr>
-									</thead>
-									<tr style="height:40px;border-bottom:1px dotted #ccc;border-top:1px dotted #ccc;">
-										<td>
-											<div class="ic"><img src="tri.png" width="12px" height="14px"></div>IN
-											FLIGHT
-										</td>
-										<td class="rline ar pr25">+100,320</td>
-										<td class="ar">+4,000,000,000</td>
-										<td class="ac" colspan="3"><span class="grn">Complete Withdrawals</span></td>
-
-									</tr>
-									<tr style="height:30px;">
-										<td class="ar"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-										<td class="rline ar pr25">+10.000</td>
-										<td class="ar">-9.732</td>
-										<td colspan="3"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-									</tr>
-									<tr style="height:20px;">
-										<td class="ar"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-										<td class="rline ar pr25">+90.320</td>
-										<td class="ar">+4,000,000.000</td>
-										<td colspan="3"><img src="pending.png" height="12px" width="12px"
-												hspace="5px">Pending</td>
-									</tr>
-									<tr style="height:20px;">
-										<td> </td>
-										<td class="rline"> </td>
-										<td class="ar">-18.132</td>
-										<td><img src="ready.png" height="12px" width="12px" hspace="5px">Ready</td>
-										<td colspan="2"><span class="grn">Complete Withdrawals</span></td>
-
-									</tr>
-									<tr style="height:20px;">
-										<td> </td>
-										<td class="rline"> </td>
-										<td class="ar">-3.702</td>
-										<td><img src="ready.png" height="12px" width="12px" hspace="5px">Ready</td>
-										<td colspan="2"><span class="grn">Complete Withdrawals</span></td>
-
-									</tr>
-									<tr style="height:20px;">
-										<td> </td>
-										<td class="rline"> </td>
-										<td class="ar">-18.132</td>
-										<td><img src="ready.png" height="12px" width="12px" hspace="5px">Pending</td>
-										<td colspan="2"><span class="grn">Complete Withdrawals</span></td>
-
-									</tr>
-								</table>
-
-							</td>
-						</tr>
-						<tr class="rc2">
-							<td>Third row</td>
-						</tr>
-						<tr class="rc1">
-							<td>Fourth row</td>
-						</tr>
-						-->
 					</table>
-					<br><br><br><br>
-					<!-- <div class="switch">
-                                <input type="checkbox" name="" value="" id="hide-zero"> Hide 0 Balances
-                              </div> -->
 				</div>
 			</div>
-
 		</div>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -475,12 +315,28 @@
 					
 				}
 			})
+			$(document).ready(function(){
+				$(".toggleInFlight").bind("click", function () {
+                console.log("showHide " + $(this).attr("data-symbol"));
+                $("#inFlightHeader_" + $(this).attr("data-symbol")).siblings(".inFlightDetails").toggle();
+    
+            });
+			});
 			setTimeout(function () {
 				console.log("Vue Model Update");
                 myPortfolio.total_portfolio_valuation = "63,098 ETH ($6,008,000.00)"
                 myPortfolio.plasma_wallet_coins = "2,399.48 ETH ($65,432.75)"
                 myPortfolio.asset_funds[0].inFlightDetails[0].plasmaStatus = "Ready"
             }, 5000);
+			setTimeout(function () {
+				console.log("Vue Model Update");
+                myPortfolio.total_portfolio_valuation = "73,098 ETH ($7,008,000.00)"
+                myPortfolio.plasma_wallet_coins = "4,399.48 ETH ($85,432.75)"
+                myPortfolio.asset_funds[0].inFlightDetails[1].plasmaStatus = "Ready"
+				myPortfolio.asset_funds[0].inFlightDetails[4].plasmaStatus = "Ready"
+				myPortfolio.asset_funds[0].inFlightDetails[5].plasmaStatus = "Ready"
+				myPortfolio.asset_funds[0].inFlightDetails[6].plasmaStatus = "Ready"
+            }, 7000);
 		</script>
 
 </body>
