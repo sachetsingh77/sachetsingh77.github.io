@@ -20,7 +20,9 @@
     .w15{
         width:15%;
     }
-    
+    .em {
+        font-style: italic;
+      }
     .w20{
         width:20%;
     }

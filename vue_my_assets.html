@@ -153,7 +153,7 @@
 											</tr>
 										</thead>
 										<tr class="flight" v-bind:id="'inFlightHeader_' + asset_fund.symbol">
-											<td>
+											<td class="em">
 												<div class="ic inFlightHeaderExpanded" v-bind:data-symbol="asset_fund.symbol"></div>
 												IN FLIGHT
 											</td>
@@ -164,7 +164,7 @@
 														class="grn">Complete Withdrawals</span></a></td>
 											<td class="ar"> </td>
 										</tr>
-										<tr v-for="detail in asset_fund.inFlightDetails" class="inFlightDetails">
+										<tr v-for="detail in asset_fund.inFlightDetails" class="em inFlightDetails">
 											<td v-if="detail.myWalltetStatus === 'Pending'" class="ar"><img
 													src="pending1.png" height="12px" width="12px"
 													hspace="5px">{{detail.myWalltetStatus}}</td>
