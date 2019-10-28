@@ -144,9 +144,12 @@
 														class="value">${{asset_fund.assetHeader.plasmaAvailable_USD}}</span>
 												</th>
 
-												<th class="ac w18"><img src="plus.png" height="24px"
-														width="24px">&nbsp;&nbsp;<img src="minus.png" height="24px"
-														width="24px"> </th>
+												<th class="ac w18">
+													<img src="plus.png" height="24px" width="24px"
+														v-bind:addFunds="asset_fund.symbol">&nbsp;&nbsp;
+													<img src="minus.png" height="24px" width="24px"
+														v-bind:releaseFunds="asset_fund.symbol">
+												</th>
 											</tr>
 										</thead>
 										<tr class="flight" v-bind:id="'inFlightHeader_' + asset_fund.symbol">
@@ -158,7 +161,8 @@
 											<td class="rline ar pr25">{{asset_fund.inFlightHeader.myWalletBalance}}</td>
 											<td class="ar">{{asset_fund.inFlightHeader.plasmaBalance}}</td>
 											<td class="ac"></td>
-											<td><span class="grn">Complete Withdrawals</span></td>
+											<td v-bind:completeWithdrawals="asset_fund.symbol"><a href="#"><span
+														class="grn">Complete Withdrawals</span></a></td>
 											<td class="ar"> </td>
 										</tr>
 										<tr v-for="detail in asset_fund.inFlightDetails" class="inFlightDetails">
@@ -179,8 +183,8 @@
 											<td v-if="detail.plasmaStatus === 'Ready'"><img src="ready.png"
 													height="12px" width="12px" hspace="5px">{{detail.plasmaStatus}}</td>
 
-											<td v-if="detail.plasmaStatus === 'Ready'"><span class="grn">Complete
-													Withdrawal</span></td>
+											<td v-if="detail.plasmaStatus === 'Ready'" v-bind:logId="detail.logId"><a
+													href="#"><span class="grn">Complete Withdrawal</span></a></td>
 										</tr>
 									</table>
 								</td>
@@ -195,6 +199,18 @@
 		<script>
 			$(document).ready(function () {
 
+				function toggleInFlight(symbol) {
+					$("#inFlightHeader_" + symbol).siblings(".inFlightDetails").toggle();
+				}
+				function tempAlert(msg, duration) {
+					var el = document.createElement("div");
+					el.setAttribute("style", "position:absolute;top:50%;left:50%;background-color:#52cbc3;z-index:1");
+					el.innerHTML = msg;
+					setTimeout(function () {
+						el.parentNode.removeChild(el);
+					}, duration);
+					document.body.appendChild(el);
+				}
 				//initial load of "model", similar to init method in asset module
 				//setTimeout mimics the onGBlock , updateBalances and other callbacks in asset module.
 				myPortfolio = new Vue({
@@ -327,48 +343,8 @@
 										plasmaStatus: "Ready"
 									}
 								]
-							}, 
-							{
-								symbol: "SNT",
-								assetName: "Status",
-								assetHeader: {
-									myWalletBalance: "6.000",
-									plasmaBalance: "3000.999",
-									plasmaOrders: "5788.000",
-									plasmaAvailable: "6111.001",
-									myWalletBalance_USD: "811.000",
-									plasmaBalance_USD: "14000.999",
-									plasmaOrders_USD: "9123.000",
-									plasmaAvailable_USD: "7800.001"
-								},
-								inFlightHeader: {
-									myWalletBalance: "+6000.320",
-									plasmaBalance: "+3,000.140"
-								},
-								inFlightDetails: [
-									{
-										logId: "555557775",
-										myWalltetStatus: "Pending",
-										myWalletBalance: "+20777.320",
-										plasmaBalance: "-2977.732",
-										plasmaStatus: "Pending"
-									},
-									{
-										logId: "888888823",
-										myWalltetStatus: "",
-										myWalletBalance: "",
-										plasmaBalance: "-7221.732",
-										plasmaStatus: "Ready"
-									},
-									{
-										logId: "88888883222355",
-										myWalltetStatus: "",
-										myWalletBalance: "",
-										plasmaBalance: "-710550.732",
-										plasmaStatus: "Ready"
-									}
-								]
-							}
+							},
+
 
 						]
 
@@ -390,10 +366,74 @@
 					myPortfolio.asset_funds[0].inFlightDetails[5].plasmaStatus = "Ready"
 					myPortfolio.asset_funds[0].inFlightDetails[6].plasmaStatus = "Ready"
 				}, 7000);
-				$(".toggleInFlight").bind("click", function () {
-					$("#inFlightHeader_" + $(this).attr("data-symbol")).siblings(".inFlightDetails").toggle();
+				setTimeout(function () {
+					newArrival =
+						{
+							symbol: "BAT",
+							assetName: "Basic Attn Token",
+							assetHeader: {
+								myWalletBalance: "61.000",
+								plasmaBalance: "3300.999",
+								plasmaOrders: "9778.000",
+								plasmaAvailable: "6141.001",
+								myWalletBalance_USD: "831.000",
+								plasmaBalance_USD: "100.999",
+								plasmaOrders_USD: "923.000",
+								plasmaAvailable_USD: "70.001"
+							},
+							inFlightHeader: {
+								myWalletBalance: "+900.320",
+								plasmaBalance: "+5,00.140"
+							},
+							inFlightDetails: [
+								{
+									logId: "55555777500",
+									myWalltetStatus: "Pending",
+									myWalletBalance: "+120777.320",
+									plasmaBalance: "-29727.732",
+									plasmaStatus: "Pending"
+								},
+								{
+									logId: "888888823456",
+									myWalltetStatus: "",
+									myWalletBalance: "",
+									plasmaBalance: "-71.732",
+									plasmaStatus: "Ready"
+								},
+								{
+									logId: "8888882355",
+									myWalltetStatus: "",
+									myWalletBalance: "",
+									plasmaBalance: "-7150.732",
+									plasmaStatus: "Ready"
+								}
+							]
+						}
+					myPortfolio.asset_funds.push(newArrival);
+				}, 10000);
+				
+				$(document).on("click", ".toggleInFlight", function () {
+					console.log("Toggle In Flight Details " + $(this).attr("data-symbol"));
+					toggleInFlight($(this).attr("data-symbol"));
+				});
+				$(document).on("click", "td[logId]", function () {
+					console.log("Complete Withdrawal for logId " + $(this).attr("logId"));
+					tempAlert("Complete Withdrawal for logId " + $(this).attr("logId"), 1000);
+				});
+				$(document).on("click", "img[addFunds]", function () {
+					console.log("Add Funds for " + $(this).attr("addFunds"));
+					tempAlert("Add Funds for " + $(this).attr("addFunds"), 1000);
+				});
+				$(document).on("click", "img[releaseFunds]", function () {
+					console.log("Release Funds for " + $(this).attr("releaseFunds"));
+					tempAlert("Release Funds for " + $(this).attr("releaseFunds"), 1000);
+				});
+				$(document).on("click", "td[completeWithdrawals]", function () {
+					console.log("Complete all Withdrawals for token " + $(this).attr("completeWithdrawals"));
+					tempAlert("Complete all Withdrawals for token " + $(this).attr("completeWithdrawals"), 1000);
 				});
 			});
 		</script>
 </body>
+
 </html>
