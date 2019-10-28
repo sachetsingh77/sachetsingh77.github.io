@@ -167,7 +167,7 @@
 										</tr>
 										<tr v-for="detail in asset_fund.inFlightDetails" class="inFlightDetails">
 											<td v-if="detail.myWalltetStatus === 'Pending'" class="ar"><img
-													src="pending.png" height="12px" width="12px"
+													src="pending1.png" height="12px" width="12px"
 													hspace="5px">{{detail.myWalltetStatus}}</td>
 											<td v-if="detail.myWalltetStatus === 'Pending'" class="rline ar pr25">
 												{{detail.myWalletBalance}}</td>
@@ -177,7 +177,7 @@
 											<td v-if="detail.myWalltetStatus === ''" class="rline"> </td>
 
 											<td class="ar">{{detail.plasmaBalance}}</td>
-											<td v-if="detail.plasmaStatus === 'Pending'"><img src="pending.png"
+											<td v-if="detail.plasmaStatus === 'Pending'"><img src="pending1.png"
 													height="12px" width="12px" hspace="5px">{{detail.plasmaStatus}}</td>
 
 											<td v-if="detail.plasmaStatus === 'Ready'"><img src="ready.png"
