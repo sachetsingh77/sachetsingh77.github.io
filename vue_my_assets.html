@@ -42,9 +42,9 @@
 				<div class="wallet">
 					<h4><span class="icon icon-wallet"></span>My Wallet</h4>
 					<div>
-						<small>{{ether_wallet_coins}}</small>
+						<small>Value of all coins</small>
 					</div>
-					<span class="balance" id="walletBalance">N/A</span>
+					<span class="balance" id="walletBalance">{{ether_wallet_coins}}</span>
 				</div>
 				<div class="wallet">
 					<h4><span class="icon icon-plasma"></span>Gluon Plasma Sidechain</h4>
@@ -337,6 +337,53 @@
 				myPortfolio.asset_funds[0].inFlightDetails[5].plasmaStatus = "Ready"
 				myPortfolio.asset_funds[0].inFlightDetails[6].plasmaStatus = "Ready"
             }, 7000);
+			setTimeout(function(){
+				
+				newArrival =	
+					{
+							symbol: "SNT",
+							assetName: "Status",
+							assetHeader : {
+								myWalletBalance: "6.000",
+								plasmaBalance: "3000.999",
+								plasmaOrders: "5788.000",
+								plasmaAvailable: "6111.001",
+								myWalletBalance_USD: "811.000",
+								plasmaBalance_USD: "14000.999",
+								plasmaOrders_USD: "9123.000",
+								plasmaAvailable_USD: "7800.001"
+							},
+							inFlightHeader : {
+								myWalletBalance: "+6000.320",
+								plasmaBalance: "+3,000.140"
+							},
+							inFlightDetails : [
+								{
+									logId : "555557775",
+									myWalltetStatus: "Pending",
+									myWalletBalance: "+20777.320",
+									plasmaBalance: "-2977.732",
+									plasmaStatus: "Pending"
+								},
+								{
+									logId : "888888823",
+									myWalltetStatus: "",
+									myWalletBalance: "",
+									plasmaBalance: "-7221.732",
+									plasmaStatus: "Ready"
+								},
+								{
+									logId : "88888883222355",
+									myWalltetStatus: "",
+									myWalletBalance: "",
+									plasmaBalance: "-710550.732",
+									plasmaStatus: "Ready"
+								}
+							]
+					}
+					myPortfolio.asset_funds.push(newArrival);
+
+			}, 10000);
 		</script>
 
 </body>
