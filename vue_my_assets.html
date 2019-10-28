@@ -154,9 +154,8 @@
 										</thead>
 										<tr class="flight" v-bind:id="'inFlightHeader_' + asset_fund.symbol">
 											<td>
-												<div class="ic toggleInFlight" v-bind:data-symbol="asset_fund.symbol">
-													<img src="tri.png" width="12px" height="14px"></div>IN
-												FLIGHT
+												<div class="ic inFlightHeaderExpanded" v-bind:data-symbol="asset_fund.symbol"></div>
+												IN FLIGHT
 											</td>
 											<td class="rline ar pr25">{{asset_fund.inFlightHeader.myWalletBalance}}</td>
 											<td class="ar">{{asset_fund.inFlightHeader.plasmaBalance}}</td>
@@ -199,18 +198,7 @@
 		<script>
 			$(document).ready(function () {
 
-				function toggleInFlight(symbol) {
-					$("#inFlightHeader_" + symbol).siblings(".inFlightDetails").toggle();
-				}
-				function tempAlert(msg, duration) {
-					var el = document.createElement("div");
-					el.setAttribute("style", "position:absolute;top:50%;left:50%;background-color:#52cbc3;z-index:1");
-					el.innerHTML = msg;
-					setTimeout(function () {
-						el.parentNode.removeChild(el);
-					}, duration);
-					document.body.appendChild(el);
-				}
+				
 				//initial load of "model", similar to init method in asset module
 				//setTimeout mimics the onGBlock , updateBalances and other callbacks in asset module.
 				myPortfolio = new Vue({
@@ -411,10 +399,22 @@
 						}
 					myPortfolio.asset_funds.push(newArrival);
 				}, 10000);
-				
-				$(document).on("click", ".toggleInFlight", function () {
+				function toggleInFlight(symbol) {
+					$("#inFlightHeader_" + symbol).siblings(".inFlightDetails").toggle();
+				}
+				function tempAlert(msg, duration) {
+					var el = document.createElement("div");
+					el.setAttribute("style", "position:absolute;top:50%;left:50%;background-color:#52cbc3;z-index:1");
+					el.innerHTML = msg;
+					setTimeout(function () {
+						el.parentNode.removeChild(el);
+					}, duration);
+					document.body.appendChild(el);
+				}
+				$(document).on("click", ".inFlightHeaderExpanded", function () {
 					console.log("Toggle In Flight Details " + $(this).attr("data-symbol"));
 					toggleInFlight($(this).attr("data-symbol"));
+					$(this).toggleClass("inFlightHeaderCollapsed");
 				});
 				$(document).on("click", "td[logId]", function () {
 					console.log("Complete Withdrawal for logId " + $(this).attr("logId"));
@@ -425,8 +425,8 @@
 					tempAlert("Add Funds for " + $(this).attr("addFunds"), 1000);
 				});
 				$(document).on("click", "img[releaseFunds]", function () {
-					console.log("Release Funds for " + $(this).attr("releaseFunds"));
-					tempAlert("Release Funds for " + $(this).attr("releaseFunds"), 1000);
+					console.log("Withdraw Funds for " + $(this).attr("releaseFunds"));
+					tempAlert("Withdraw Funds for " + $(this).attr("releaseFunds"), 1000);
 				});
 				$(document).on("click", "td[completeWithdrawals]", function () {
 					console.log("Complete all Withdrawals for token " + $(this).attr("completeWithdrawals"));

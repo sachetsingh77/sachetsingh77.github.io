@@ -115,5 +115,20 @@
     #myPortfolioFunds > :nth-child(odd)  {
         background : #62648f
     }
-    
+    .inFlightHeaderExpanded {
+        width: 12px;
+        height: 14px;
+        background: url("triangle_expanded.png");
+        background-repeat : no-repeat;
+        background-position: center;
+        background-size: 12px, 12px;
+    }
+    .inFlightHeaderCollapsed {
+        width: 12px;
+        height: 14px;
+        background: url("triangle_collapsed.png");
+        background-repeat : no-repeat;
+        background-position: center;
+        background-size: 12px, 12px;
+    }
     
