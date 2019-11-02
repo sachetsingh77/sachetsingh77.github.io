@@ -1,0 +1,386 @@
+<html>
+
+        <head>
+                <title>Leverj | My Assets</title>
+                <meta name="description" content="Decentralized Leveraged Exchange">
+                <meta property="og:title" content="Leverj.io: Decentralized Leveraged Exchange">
+                <meta property="og:url" content="https://live.leverj.io">
+                <meta property="og:type" content="website">
+                <meta property="og:site_name" content="leverj.io">
+                <meta property="og:image" content="https://leverj.io/images/favicon/mstile-150x150.png">
+                <meta property="twitter:site" content="@leverj_io">
+                <meta property="twitter:img:src" content="https://leverj.io/images/favicon/mstile-150x150.png">
+                <meta property="og:description" content="Decentralized Leveraged Exchange">
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <meta name="viewport"
+                    content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+                <meta name="keywords" content="">
+                <meta name="copyright" content="">
+                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+                <link rel="dns-prefetch" href="//live.leverj.io">
+                <link rel="dns-prefetch" href="//api.coinbase.com">
+                <link rel="manifest" href="/site.webmanifest">
+                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+                <meta name="msapplication-TileColor" content="#da532c">
+                <meta name="theme-color" content="#ffffff">
+                <link rel="stylesheet" type="text/css" id="leverjmincss" href="leverj.min.css">
+                <link rel="stylesheet" type="text/css" id="vue_assets_css" href="vue_my_assets.css">
+            </head>
+
+            <body class="">
+                <div id="app">
+                </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const template = `
+        <div id="myAssetsContainer">
+                <div class="sidebar"><div class="heading"><h2>My Assets</h2> <div>My Total Portfolio Valuation</div> <span id="portfolioBalance">{{total_portfolio_valuation}}</span></div> <div class="wallets"><div class="wallet"><h4><span class="icon icon-wallet"></span>My Wallet</h4> <div><small>Value of all coins</small></div> <span id="walletBalance" class="balance">{{ether_wallet_coins}}</span></div> <div class="wallet"><h4><span class="icon icon-plasma"></span>Gluon Plasma Sidechain</h4> <div><small>Value of all coins</small></div> <span id="plasmaBalance" class="balance">{{plasma_wallet_coins}}</span></div></div></div>
+                <div class="main">
+			<div class="close">
+				<i class="icon icon-close"></i>
+			</div>
+			<div class="main-header">
+				<div class="switcher">
+					<div class="switch">
+						<input type="radio" class="switch-input" name="view" value="funds" id="switch-funds" checked="">
+						<label for="switch-funds" class="switch-label switch-label-off">Funds</label>
+						<input type="radio" class="switch-input" name="view" value="transactions"
+							id="switch-transactions">
+						<label for="switch-transactions" class="switch-label switch-label-on">Transactions</label>
+						<span class="switch-selection"></span>
+					</div>
+
+					<br /> <br /> <br />
+					<table id="myPortfolioFunds" cellpadding="0" cellspacing="0" border="0" class="cw">
+						<thead>
+							<tr>
+								<th>
+									<table cellpadding="0" cellspacing="0" border="0" class="cw">
+										<thead>
+											<tr>
+												<th class="rline w30 al" colspan="2">
+													<div class="wallet">
+														<span>Main Chain</span>
+														<h4>
+															<span class="icon icon-wallet"></span>
+															My Wallet
+														</h4>
+														<br>
+													</div>
+												</th>
+												<th class="w70 secondary p25" colspan="4">
+													<div class="wallet">
+														<span>Sidechain</span>
+														<h4>
+															<span class="icon icon-plasma"></span>
+															Gluon Plasma
+														</h4>
+														<br>
+													</div>
+												</th>
+											</tr>
+										</thead>
+										<tr class="h40">
+											<td class="w15">Asset</td>
+											<td class="w15 rline ar pr25">Balance</td>
+											<td class="ar w18">Balance</td>
+											<td class="ar w18">In Orders</td>
+											<td class="ar w18">Available</td>
+											<td class="ar w18 pr25">Manage Funds</td>
+										</tr>
+									</table>
+
+								</th>
+							</tr>
+						</thead>
+						
+							<tr class="rc0" v-for="asset_fund in asset_funds">
+
+								<td>
+									<table cellpadding="0" cellspacing="0" border="0" class="cw f15">
+										<thead>
+											<tr style="height:50px;">
+												<th class="al w15">
+													<div class="ic"><img src="d.png" width="16px" height="28px"></div>
+													<div style="display:inline-block;">
+														{{asset_fund.symbol}} <br>{{asset_fund.assetName}}
+													</div>
+												</th>
+												<th class="rline w15 ar pr25 ">
+													{{asset_fund.assetHeader.myWalletBalance}} <br><span
+														class="value">{{asset_fund.assetHeader.myWalletBalance_USD}}</span>
+												</th>
+
+												<th class="ar w18"> {{asset_fund.assetHeader.plasmaBalance}}<br><span
+														class="value">{{asset_fund.assetHeader.plasmaBalance_USD}}</span>
+												</th>
+
+												<th class="ar w18">{{asset_fund.assetHeader.plasmaOrders}}
+													<br><span
+														class="value">{{asset_fund.assetHeader.plasmaOrders_USD}}</span>
+												</th>
+
+												<th class="ar w18"> {{asset_fund.assetHeader.plasmaAvailable }}<br><span
+														class="value">{{asset_fund.assetHeader.plasmaAvailable_USD}}</span>
+												</th>
+
+												<th class="ac w18">
+													<img src="plus.png" height="24px" width="24px"
+														v-bind:addFunds="asset_fund.symbol">&nbsp;&nbsp;
+													<img src="minus.png" height="24px" width="24px"
+														v-bind:releaseFunds="asset_fund.symbol">
+												</th>
+											</tr>
+										</thead>
+										<tr class="flight" v-bind:id="'inFlightHeader_' + asset_fund.symbol">
+											<td class="em">
+												<div class="ic inFlightHeaderExpanded" v-bind:data-symbol="asset_fund.symbol"></div>
+												IN FLIGHT
+											</td>
+											<td class="rline ar pr25">{{asset_fund.inFlightHeader.myWalletBalance}}</td>
+											<td class="ar">{{asset_fund.inFlightHeader.plasmaBalance}}</td>
+											<td class="ac"></td>
+											<td v-bind:completeWithdrawals="asset_fund.symbol"><a href="#"><span
+														class="grn">Complete Withdrawals</span></a></td>
+											<td class="ar"> </td>
+										</tr>
+										<tr v-for="detail in asset_fund.inFlightDetails" class="em inFlightDetails">
+											<td v-if="detail.myWalltetStatus === 'Pending'" class="ar"><img
+													src="pending1.png" height="12px" width="12px"
+													hspace="5px">{{detail.myWalltetStatus}}</td>
+											<td v-if="detail.myWalltetStatus === 'Pending'" class="rline ar pr25">
+												{{detail.myWalletBalance}}</td>
+
+
+											<td v-if="detail.myWalltetStatus === ''"> </td>
+											<td v-if="detail.myWalltetStatus === ''" class="rline"> </td>
+
+											<td class="ar">{{detail.plasmaBalance}}</td>
+											<td v-if="detail.plasmaStatus === 'Pending'"><img src="pending1.png"
+													height="12px" width="12px" hspace="5px">{{detail.plasmaStatus}}</td>
+
+											<td v-if="detail.plasmaStatus === 'Ready'"><img src="ready.png"
+													height="12px" width="12px" hspace="5px">{{detail.plasmaStatus}}</td>
+
+											<td v-if="detail.plasmaStatus === 'Ready'" v-bind:logId="detail.logId"><a
+													href="#"><span class="grn">Complete Withdrawal</span></a></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+        </div>        
+       
+`;
+
+function otos(obj){
+  var rs = '';
+  var not_first = false;
+  
+  for(var k in obj){
+    if(not_first) rs += ',';
+    if(typeof obj[k] === 'object'){
+      rs +=  '"'+k+'": {'+otos(obj[k])+'}';
+    }
+    else if(typeof obj[k] === 'string' || typeof obj[k] === 'function'){
+      rs += '"'+k+'":"'+obj[k]+'"';
+    }
+    else if(typeof obj[k] === 'number'){
+      rs += '"'+k+'":'+obj[k]+'';
+    }
+    else {
+      // if it gets here then we need to add another else if to handle it
+      console.log(typeof obj[k]);
+    }
+    not_first = true;
+  }
+  return rs;
+}
+
+        var modelData = {
+                                total_portfolio_valuation: "34,098 ETH ($5,008,000.00)",
+                                ether_wallet_coins: "2,100.56 ETH ($47,000.00)",
+                                plasma_wallet_coins: "2,356.78 ETH ($46,766.00)",
+                                asset_funds: []
+            
+                            }
+
+        //const compiledTemplate = Vue.compile(template);
+        //console.log(otos(compiledTemplate));
+        const compiledTemplate = {
+        render:function (
+) {
+with(this){return _c('div',{attrs:{"id":"myAssetsContainer"}},[_c('div',{staticClass:"sidebar"},[_c('div',{staticClass:"heading"},[_c('h2',[_v("My Assets")]),_v(" "),_c('div',[_v("My Total Portfolio Valuation")]),_v(" "),_c('span',{attrs:{"id":"portfolioBalance"}},[_v(_s(total_portfolio_valuation))])]),_v(" "),_c('div',{staticClass:"wallets"},[_c('div',{staticClass:"wallet"},[_m(0),_v(" "),_m(1),_v(" "),_c('span',{staticClass:"balance",attrs:{"id":"walletBalance"}},[_v(_s(ether_wallet_coins))])]),_v(" "),_c('div',{staticClass:"wallet"},[_m(2),_v(" "),_m(3),_v(" "),_c('span',{staticClass:"balance",attrs:{"id":"plasmaBalance"}},[_v(_s(plasma_wallet_coins))])])])]),_v(" "),_c('div',{staticClass:"main"},[_m(4),_v(" "),_c('div',{staticClass:"main-header"},[_c('div',{staticClass:"switcher"},[_m(5),_v(" "),_c('br'),_v(" "),_c('br'),_v(" "),_c('br'),_v(" "),_c('table',{staticClass:"cw",attrs:{"id":"myPortfolioFunds","cellpadding":"0","cellspacing":"0","border":"0"}},[_m(6),_v(" "),_l((asset_funds),function(asset_fund){return _c('tr',{staticClass:"rc0"},[_c('td',[_c('table',{staticClass:"cw f15",attrs:{"cellpadding":"0","cellspacing":"0","border":"0"}},[_c('thead',[_c('tr',{staticStyle:{"height":"50px"}},[_c('th',{staticClass:"al w15"},[_m(7,true),_v(" "),_c('div',{staticStyle:{"display":"inline-block"}},[_v("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+_s(asset_fund.symbol)+" "),_c('br'),_v(_s(asset_fund.assetName)+"\n\t\t\t\t\t\t\t\t\t\t\t\t\t")])]),_v(" "),_c('th',{staticClass:"rline w15 ar pr25 "},[_v("\n\t\t\t\t\t\t\t\t\t\t\t\t\t"+_s(asset_fund.assetHeader.myWalletBalance)+" "),_c('br'),_c('span',{staticClass:"value"},[_v(_s(asset_fund.assetHeader.myWalletBalance_USD))])]),_v(" "),_c('th',{staticClass:"ar w18"},[_v(" "+_s(asset_fund.assetHeader.plasmaBalance)),_c('br'),_c('span',{staticClass:"value"},[_v(_s(asset_fund.assetHeader.plasmaBalance_USD))])]),_v(" "),_c('th',{staticClass:"ar w18"},[_v(_s(asset_fund.assetHeader.plasmaOrders)+"\n\t\t\t\t\t\t\t\t\t\t\t\t\t"),_c('br'),_c('span',{staticClass:"value"},[_v(_s(asset_fund.assetHeader.plasmaOrders_USD))])]),_v(" "),_c('th',{staticClass:"ar w18"},[_v(" "+_s(asset_fund.assetHeader.plasmaAvailable)),_c('br'),_c('span',{staticClass:"value"},[_v(_s(asset_fund.assetHeader.plasmaAvailable_USD))])]),_v(" "),_c('th',{staticClass:"ac w18"},[_c('img',{attrs:{"src":"plus.png","height":"24px","width":"24px","addFunds":asset_fund.symbol}}),_v("  \n\t\t\t\t\t\t\t\t\t\t\t\t\t"),_c('img',{attrs:{"src":"minus.png","height":"24px","width":"24px","releaseFunds":asset_fund.symbol}})])])]),_v(" "),_c('tr',{staticClass:"flight",attrs:{"id":'inFlightHeader_' + asset_fund.symbol}},[_c('td',{staticClass:"em"},[_c('div',{staticClass:"ic inFlightHeaderExpanded",attrs:{"data-symbol":asset_fund.symbol}}),_v("\n\t\t\t\t\t\t\t\t\t\t\t\tIN FLIGHT\n\t\t\t\t\t\t\t\t\t\t\t")]),_v(" "),_c('td',{staticClass:"rline ar pr25"},[_v(_s(asset_fund.inFlightHeader.myWalletBalance))]),_v(" "),_c('td',{staticClass:"ar"},[_v(_s(asset_fund.inFlightHeader.plasmaBalance))]),_v(" "),_c('td',{staticClass:"ac"}),_v(" "),_c('td',{attrs:{"completeWithdrawals":asset_fund.symbol}},[_m(8,true)]),_v(" "),_c('td',{staticClass:"ar"})]),_v(" "),_l((asset_fund.inFlightDetails),function(detail){return _c('tr',{staticClass:"em inFlightDetails"},[(detail.myWalltetStatus === 'Pending')?_c('td',{staticClass:"ar"},[_c('img',{attrs:{"src":"pending1.png","height":"12px","width":"12px","hspace":"5px"}}),_v(_s(detail.myWalltetStatus))]):_e(),_v(" "),(detail.myWalltetStatus === 'Pending')?_c('td',{staticClass:"rline ar pr25"},[_v("\n\t\t\t\t\t\t\t\t\t\t\t\t"+_s(detail.myWalletBalance))]):_e(),_v(" "),(detail.myWalltetStatus === '')?_c('td'):_e(),_v(" "),(detail.myWalltetStatus === '')?_c('td',{staticClass:"rline"}):_e(),_v(" "),_c('td',{staticClass:"ar"},[_v(_s(detail.plasmaBalance))]),_v(" "),(detail.plasmaStatus === 'Pending')?_c('td',[_c('img',{attrs:{"src":"pending1.png","height":"12px","width":"12px","hspace":"5px"}}),_v(_s(detail.plasmaStatus))]):_e(),_v(" "),(detail.plasmaStatus === 'Ready')?_c('td',[_c('img',{attrs:{"src":"ready.png","height":"12px","width":"12px","hspace":"5px"}}),_v(_s(detail.plasmaStatus))]):_e(),_v(" "),(detail.plasmaStatus === 'Ready')?_c('td',{attrs:{"logId":detail.logId}},[_m(9,true)]):_e()])})],2)])])})],2)])])])])}
+},
+staticRenderFns: [{function (
+) {
+with(this){return _c('h4',[_c('span',{staticClass:"icon icon-wallet"}),_v("My Wallet")])}
+}},
+{function (
+) {
+with(this){return _c('div',[_c('small',[_v("Value of all coins")])])}
+}},{function (
+) {
+with(this){return _c('h4',[_c('span',{staticClass:"icon icon-plasma"}),_v("Gluon Plasma Sidechain")])}
+}},{function (
+) {
+with(this){return _c('div',[_c('small',[_v("Value of all coins")])])}
+}},{function (
+) {
+with(this){return _c('div',{staticClass:"close"},[_c('i',{staticClass:"icon icon-close"})])}
+}},{function (
+) {
+with(this){return _c('div',{staticClass:"switch"},[_c('input',{staticClass:"switch-input",attrs:{"type":"radio","name":"view","value":"funds","id":"switch-funds","checked":""}}),_v(" "),_c('label',{staticClass:"switch-label switch-label-off",attrs:{"for":"switch-funds"}},[_v("Funds")]),_v(" "),_c('input',{staticClass:"switch-input",attrs:{"type":"radio","name":"view","value":"transactions","id":"switch-transactions"}}),_v(" "),_c('label',{staticClass:"switch-label switch-label-on",attrs:{"for":"switch-transactions"}},[_v("Transactions")]),_v(" "),_c('span',{staticClass:"switch-selection"})])}
+}},{function (
+) {
+with(this){return _c('thead',[_c('tr',[_c('th',[_c('table',{staticClass:"cw",attrs:{"cellpadding":"0","cellspacing":"0","border":"0"}},[_c('thead',[_c('tr',[_c('th',{staticClass:"rline w30 al",attrs:{"colspan":"2"}},[_c('div',{staticClass:"wallet"},[_c('span',[_v("Main Chain")]),_v(" "),_c('h4',[_c('span',{staticClass:"icon icon-wallet"}),_v("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMy Wallet\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t")]),_v(" "),_c('br')])]),_v(" "),_c('th',{staticClass:"w70 secondary p25",attrs:{"colspan":"4"}},[_c('div',{staticClass:"wallet"},[_c('span',[_v("Sidechain")]),_v(" "),_c('h4',[_c('span',{staticClass:"icon icon-plasma"}),_v("\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tGluon Plasma\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t")]),_v(" "),_c('br')])])])]),_v(" "),_c('tr',{staticClass:"h40"},[_c('td',{staticClass:"w15"},[_v("Asset")]),_v(" "),_c('td',{staticClass:"w15 rline ar pr25"},[_v("Balance")]),_v(" "),_c('td',{staticClass:"ar w18"},[_v("Balance")]),_v(" "),_c('td',{staticClass:"ar w18"},[_v("In Orders")]),_v(" "),_c('td',{staticClass:"ar w18"},[_v("Available")]),_v(" "),_c('td',{staticClass:"ar w18 pr25"},[_v("Manage Funds")])])])])])])}
+}},{function (
+) {
+with(this){return _c('div',{staticClass:"ic"},[_c('img',{attrs:{"src":"d.png","width":"16px","height":"28px"}})])}
+}},{function (
+) {
+with(this){return _c('a',{attrs:{"href":"#"}},[_c('span',{staticClass:"grn"},[_v("Complete Withdrawals")])])}
+}},{function (
+) {
+with(this){return _c('a',{attrs:{"href":"#"}},[_c('span',{staticClass:"grn"},[_v("Complete Withdrawal")])])}
+}
+}]
+        }
+
+        /*for (var i=0; i<compiledTemplate.staticRenderFns.length; i++){
+            console.log("compiled template static fn " + compiledTemplate.staticRenderFns[i]);
+        }*/
+
+            var model = new Vue({
+                el: '#app',
+                data: {
+
+                   total_portfolio_valuation: "",
+                    ether_wallet_coins: "",
+                    plasma_wallet_coins: "",
+                    asset_funds: []
+
+                },
+                render(createElement) {
+                    let base = {
+                        data() {
+                            return modelData;
+                        }
+                    }
+                    let component = Object.assign({}, compiledTemplate, base)
+                    return createElement(component);
+
+                    //return compiledTemplate.render.call(this, createElement);
+                }
+            });
+        
+            setTimeout(function(){
+                modelData.total_portfolio_valuation = "5,656,565 USD";
+                
+                console.log("total_portfolio_valuation " + model.total_portfolio_valuation);        
+            }, 3000);
+
+            setTimeout(function () {
+        newArrival =
+            {
+                symbol: "BAT",
+                assetName: "Basic Attn Token",
+                assetHeader: {
+                    myWalletBalance: "61.000",
+                    plasmaBalance: "3300.999",
+                    plasmaOrders: "9778.000",
+                    plasmaAvailable: "6141.001",
+                    myWalletBalance_USD: "831.000",
+                    plasmaBalance_USD: "100.999",
+                    plasmaOrders_USD: "923.000",
+                    plasmaAvailable_USD: "70.001"
+                },
+                inFlightHeader: {
+                    myWalletBalance: "+900.320",
+                    plasmaBalance: "+5,00.140"
+                },
+                inFlightDetails: [
+                    {
+                        logId: "55555777500",
+                        myWalltetStatus: "Pending",
+                        myWalletBalance: "+120777.320",
+                        plasmaBalance: "-29727.732",
+                        plasmaStatus: "Pending"
+                    },
+                    {
+                        logId: "888888823456",
+                        myWalltetStatus: "",
+                        myWalletBalance: "",
+                        plasmaBalance: "-71.732",
+                        plasmaStatus: "Ready"
+                    },
+                    {
+                        logId: "8888882355",
+                        myWalltetStatus: "",
+                        myWalletBalance: "",
+                        plasmaBalance: "-7150.732",
+                        plasmaStatus: "Ready"
+                    }
+                ]
+            }
+        modelData.asset_funds.push(newArrival);
+    }, 5000);
+
+    setTimeout(function () {
+        console.log("Vue Model Update");
+        modelData.total_portfolio_valuation = "63,098 ETH ($6,008,000.00)"
+        modelData.plasma_wallet_coins = "2,399.48 ETH ($65,432.75)"
+        modelData.asset_funds[0].inFlightDetails[0].plasmaStatus = "Ready"
+    }, 6000);
+    setTimeout(function () {
+        console.log("Vue Model Update");
+        modelData.total_portfolio_valuation = "73,098 ETH ($7,008,000.00)"
+        modelData.plasma_wallet_coins = "4,399.48 ETH ($85,432.75)"
+        modelData.asset_funds[0].inFlightDetails[0].plasmaStatus = "Pending"
+        
+    }, 8000);
+
+    function toggleInFlight(symbol) {
+        $("#inFlightHeader_" + symbol).siblings(".inFlightDetails").toggle();
+    }
+    function tempAlert(msg, duration) {
+        var el = document.createElement("div");
+        el.setAttribute("style", "position:absolute;top:50%;left:50%;background-color:#52cbc3;z-index:1");
+        el.innerHTML = msg;
+        setTimeout(function () {
+            el.parentNode.removeChild(el);
+        }, duration);
+        document.body.appendChild(el);
+    }
+    $(document).on("click", ".inFlightHeaderExpanded", function () {
+        console.log("Toggle In Flight Details " + $(this).attr("data-symbol"));
+        toggleInFlight($(this).attr("data-symbol"));
+        $(this).toggleClass("inFlightHeaderCollapsed");
+    });
+    $(document).on("click", "td[logId]", function () {
+        console.log("Complete Withdrawal for logId " + $(this).attr("logId"));
+        tempAlert("Complete Withdrawal for logId " + $(this).attr("logId"), 1000);
+    });
+    $(document).on("click", "img[addFunds]", function () {
+        console.log("Add Funds for " + $(this).attr("addFunds"));
+        tempAlert("Add Funds for " + $(this).attr("addFunds"), 1000);
+    });
+    $(document).on("click", "img[releaseFunds]", function () {
+        console.log("Withdraw Funds for " + $(this).attr("releaseFunds"));
+        tempAlert("Withdraw Funds for " + $(this).attr("releaseFunds"), 1000);
+    });
+    $(document).on("click", "td[completeWithdrawals]", function () {
+        console.log("Complete all Withdrawals for token " + $(this).attr("completeWithdrawals"));
+        tempAlert("Complete all Withdrawals for token " + $(this).attr("completeWithdrawals"), 1000);
+    });
+    </script>
+</body>
+
+</html>

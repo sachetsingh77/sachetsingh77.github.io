@@ -147,7 +147,7 @@ $(document).ready(function () {
         myPortfolio.plasma_wallet_coins = "2,399.48 ETH ($65,432.75)"
         myPortfolio.asset_funds[0].inFlightDetails[0].plasmaStatus = "Ready"
     }, 5000);
-    setTimeout(function () {
+    /*setTimeout(function () {
         console.log("Vue Model Update");
         myPortfolio.total_portfolio_valuation = "73,098 ETH ($7,008,000.00)"
         myPortfolio.plasma_wallet_coins = "4,399.48 ETH ($85,432.75)"
@@ -155,7 +155,7 @@ $(document).ready(function () {
         myPortfolio.asset_funds[0].inFlightDetails[4].plasmaStatus = "Ready"
         myPortfolio.asset_funds[0].inFlightDetails[5].plasmaStatus = "Ready"
         myPortfolio.asset_funds[0].inFlightDetails[6].plasmaStatus = "Ready"
-    }, 7000);
+    }, 7000);*/
     setTimeout(function () {
         newArrival =
             {

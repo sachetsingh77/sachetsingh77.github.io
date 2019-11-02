@@ -40,7 +40,9 @@
     .w10{
         width:10%;
     }
-    
+    .h50{
+        height: 50px;
+    }
     .rc0{
         background-color:#2a2b4a;
     }
@@ -133,4 +135,34 @@
         background-position: center;
         background-size: 12px, 12px;
     }
-    
+    .assetIcon {
+        width: 26px;
+        height: 28px;
+        background: url("d.png");
+        background-repeat : no-repeat;
+        background-position: center;
+        background-size: 26px, 28px;
+    }
+    .inlineBlock{
+        display:inline-block;
+    }
+    .pending{
+        width : 12px;
+        height: 12px;
+        background: url("pending1.png");
+        background-repeat: no-repeat;
+        background-size: 12px, 12px;
+        text-align: right;
+        background-position-x: center;
+    }
+    .ready{
+        width : 12px;
+        height: 12px;
+        background: url("ready.png");
+        background-repeat: no-repeat;
+        background-size: 12px, 12px;
+        margin-left: 5px;
+        margin-right: 5px;
+        text-align: right;
+        background-position-x: center;
+    }

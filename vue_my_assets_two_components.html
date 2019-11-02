@@ -32,13 +32,14 @@
 <body class="darkTBg">
 
 	<div id="myAssetsContainer" class="">
-		<div class="sidebar">
-			<div class="heading">
+		<div class="sidebar" id="walletsDivSideBar">
+			<!--<div class="heading" id="totalValuationDiv">
 				<h2>My Assets</h2>
 				<div>Total Portfolio Valuation</div>
 				<span id="portfolioBalance">{{total_portfolio_valuation}}</span>
-			</div>
-			<div class="wallets">
+			</div> -->
+			<div id="totalValuationDiv"></div>
+			<div class="wallets" >
 				<div class="wallet">
 					<h4><span class="icon icon-wallet"></span>My Wallet</h4>
 					<div>
@@ -71,7 +72,10 @@
 					</div>
 
 					<br /> <br /> <br />
-					<table id="myPortfolioFunds" cellpadding="0" cellspacing="0" border="0" class="cw">
+					<table id="myPortfolioFunds">
+
+					</table>
+					<!--<table id="myPortfolioFunds" cellpadding="0" cellspacing="0" border="0" class="cw">
 						<thead>
 							<tr>
 								<th>
@@ -113,9 +117,9 @@
 								</th>
 							</tr>
 						</thead>
-						<template v-for="(asset_fund, index) in asset_funds" v-bind:key="index">
-							<tr class="rc0">
-
+						
+							
+							<tr class="rc0" v-for="asset_fund in asset_funds">
 								<td>
 									<table cellpadding="0" cellspacing="0" border="0" class="cw f15">
 										<thead>
@@ -188,14 +192,15 @@
 									</table>
 								</td>
 							</tr>
-						</template>
-					</table>
+						
+					</table>-->
 				</div>
 			</div>
 		</div>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-		<script src="portfolio.js"></script>
+		<script src="vue_two_components.js"></script>
+		
 </body>
 
 </html>

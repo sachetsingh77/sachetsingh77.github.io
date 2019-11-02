@@ -1,0 +1,80 @@
+<html>
+
+<head>
+	<title>Leverj | My Assets</title>
+	<meta name="description" content="Decentralized Leveraged Exchange">
+	<meta property="og:title" content="Leverj.io: Decentralized Leveraged Exchange">
+	<meta property="og:url" content="https://live.leverj.io">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="leverj.io">
+	<meta property="og:image" content="https://leverj.io/images/favicon/mstile-150x150.png">
+	<meta property="twitter:site" content="@leverj_io">
+	<meta property="twitter:img:src" content="https://leverj.io/images/favicon/mstile-150x150.png">
+	<meta property="og:description" content="Decentralized Leveraged Exchange">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport"
+		content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+	<meta name="keywords" content="">
+	<meta name="copyright" content="">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="dns-prefetch" href="//live.leverj.io">
+	<link rel="dns-prefetch" href="//api.coinbase.com">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" type="text/css" id="leverjmincss" href="https://dev.leverj.io/leverj.min.css?rel=85e7c05f9d">
+	<link rel="stylesheet" type="text/css" id="vue_assets_css" href="vue_my_assets.css">
+</head>
+
+<body>
+	<div id="app"></div>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		
+		const templates = [];
+		const templatesContainer = document.getElementById('app');
+
+		// We iterate through each custom templates and precompile them
+		for (var i = 0; i < templatesContainer.children.length; i++) {
+			const template = templatesContainer.children.item(i);
+			templates.push({
+				name: template.nodeName.toLowerCase(),
+				renderFunction: Vue.compile(template.innerHTML),
+			});
+		}
+		Vue.component('heading', {
+			props: ['title'],
+			template: `
+  				<overridable name="heading">
+    				<h1>
+      					{{ title }}
+    				</h1>
+  				</overridable>`
+		});
+		Vue.component('overridable', {
+			props: ['name'],
+			render(createElement) {
+				// We use the templates array we created when the application was initialized.
+				const template = templates.find(x => x.name === this.name);
+
+				// We return the default content using the default slot when there are no custom templates.
+				if (!template) {
+					return this.$slots.default[0];
+				}
+
+				// Using the precompiled render function
+				return template.renderFunction.render.call(this.$parent, createElement);
+			}
+		});
+		let vue = new Vue({
+			el: '#app',
+			template: `<heading title="Hello world"></heading>`
+		});
+	</script>
+</body>
+
+</html>
