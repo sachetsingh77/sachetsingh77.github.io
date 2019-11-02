@@ -184,8 +184,7 @@ $(document).ready(function () {
                   console.log("status balance " + statusBalance);
                   
                   
-    //initial load of "model", similar to init method in asset module
-    //setTimeout mimics the onGBlock , updateBalances and other callbacks in asset module.
+    
     new Vue({
         el: '#myAssetsContainer',
         data: portfolioView
