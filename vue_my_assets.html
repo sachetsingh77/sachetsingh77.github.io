@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Leverj | My Assets</title>
+	<title>My Assets</title>
 	<meta name="description" content="Decentralized Leveraged Exchange">
 	<meta property="og:title" content="Leverj.io: Decentralized Leveraged Exchange">
 	<meta property="og:url" content="https://live.leverj.io">
@@ -113,7 +113,7 @@
 								</th>
 							</tr>
 						</thead>
-						<template v-for="(asset_fund, index) in asset_funds" v-bind:key="index">
+						<template v-for="asset_fund in asset_funds">
 							<tr class="rc0">
 
 								<td>
@@ -195,7 +195,7 @@
 		</div>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-		<script src="portfolio.js"></script>
+		<script src="vue_my_assets.js"></script>
 </body>
 
 </html>

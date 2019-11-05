@@ -1,6 +1,130 @@
 $(document).ready(function () {
 
-				
+   /* assetsFundMap = {}
+    assetsFundMap["ETH"]={
+        symbol: "ETH",
+        assetName: "Ether",
+        assetHeader: {
+            myWalletBalance: "1.000",
+            plasmaBalance: "30.999",
+            plasmaOrders: "23.000",
+            plasmaAvailable: "6.001",
+            myWalletBalance_USD: "41.000",
+            plasmaBalance_USD: "130.999",
+            plasmaOrders_USD: "823.000",
+            plasmaAvailable_USD: "26.001"
+        },
+        inFlightHeader: {
+            myWalletBalance: "+100.320",
+            plasmaBalance: "+4,000,335.140"
+        },
+        inFlightDetails: [
+            {
+                logId: "1234567",
+                myWalltetStatus: "Pending",
+                myWalletBalance: "+10.320",
+                plasmaBalance: "-9.732",
+                plasmaStatus: "Pending"
+            },
+            {
+                logId: "2345678",
+                myWalltetStatus: "Pending",
+                myWalletBalance: "+ 90.320",
+                plasmaBalance: "4,000,000",
+                plasmaStatus: "Pending"
+            },
+            {
+                logId: "3456789",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "-18.132",
+                plasmaStatus: "Ready"
+            },
+            {
+                logId: "3454444",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "-3.702",
+                plasmaStatus: "Ready"
+            },
+            {
+                logId: "56789",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "+ 346.000",
+                plasmaStatus: "Pending"
+            },
+            {
+                logId: "78901",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "+2.000",
+                plasmaStatus: "Pending"
+            },
+            {
+                logId: "98765",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "+ 22.405",
+                plasmaStatus: "Pending"
+            },
+            {
+                logId: "846575",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "-4.702",
+                plasmaStatus: "Ready"
+            }
+        ]
+    }
+    assetsFundMap["LEV"]={
+        symbol: "LEV",
+        assetName: "Leverj",
+        assetHeader: {
+            myWalletBalance: "2.000",
+            plasmaBalance: "300.999",
+            plasmaOrders: "54.000",
+            plasmaAvailable: "61.001",
+            myWalletBalance_USD: "81.000",
+            plasmaBalance_USD: "13000.999",
+            plasmaOrders_USD: "8023.000",
+            plasmaAvailable_USD: "2600.001"
+        },
+        inFlightHeader: {
+            myWalletBalance: "+2000.320",
+            plasmaBalance: "+9,000.140"
+        },
+        inFlightDetails: [
+            {
+                logId: "555555",
+                myWalltetStatus: "Pending",
+                myWalletBalance: "+20.320",
+                plasmaBalance: "-29.732",
+                plasmaStatus: "Pending"
+            },
+            {
+                logId: "5555558877",
+                myWalltetStatus: "Pending",
+                myWalletBalance: "+2000.320",
+                plasmaBalance: "-19.732",
+                plasmaStatus: "Pending"
+            },
+            {
+                logId: "8888888",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "-71.732",
+                plasmaStatus: "Ready"
+            },
+            {
+                logId: "88888883355",
+                myWalltetStatus: "",
+                myWalletBalance: "",
+                plasmaBalance: "-7100.732",
+                plasmaStatus: "Ready"
+            }
+        ]
+    }	*/		
     //initial load of "model", similar to init method in asset module
     //setTimeout mimics the onGBlock , updateBalances and other callbacks in asset module.
     myPortfolio = new Vue({
@@ -9,135 +133,7 @@ $(document).ready(function () {
             total_portfolio_valuation: "32,098 ETH ($5,008,000.00)",
             ether_wallet_coins: "2,000.56 ETH ($47,000.00)",
             plasma_wallet_coins: "2,056.78 ETH ($46,766.00)",
-            asset_funds: [
-                {
-                    symbol: "ETH",
-                    assetName: "Ether",
-                    assetHeader: {
-                        myWalletBalance: "1.000",
-                        plasmaBalance: "30.999",
-                        plasmaOrders: "23.000",
-                        plasmaAvailable: "6.001",
-                        myWalletBalance_USD: "41.000",
-                        plasmaBalance_USD: "130.999",
-                        plasmaOrders_USD: "823.000",
-                        plasmaAvailable_USD: "26.001"
-                    },
-                    inFlightHeader: {
-                        myWalletBalance: "+100.320",
-                        plasmaBalance: "+4,000,335.140"
-                    },
-                    inFlightDetails: [
-                        {
-                            logId: "1234567",
-                            myWalltetStatus: "Pending",
-                            myWalletBalance: "+10.320",
-                            plasmaBalance: "-9.732",
-                            plasmaStatus: "Pending"
-                        },
-                        {
-                            logId: "2345678",
-                            myWalltetStatus: "Pending",
-                            myWalletBalance: "+ 90.320",
-                            plasmaBalance: "4,000,000",
-                            plasmaStatus: "Pending"
-                        },
-                        {
-                            logId: "3456789",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "-18.132",
-                            plasmaStatus: "Ready"
-                        },
-                        {
-                            logId: "3454444",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "-3.702",
-                            plasmaStatus: "Ready"
-                        },
-                        {
-                            logId: "56789",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "+ 346.000",
-                            plasmaStatus: "Pending"
-                        },
-                        {
-                            logId: "78901",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "+2.000",
-                            plasmaStatus: "Pending"
-                        },
-                        {
-                            logId: "98765",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "+ 22.405",
-                            plasmaStatus: "Pending"
-                        },
-                        {
-                            logId: "846575",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "-4.702",
-                            plasmaStatus: "Ready"
-                        }
-                    ]
-                },
-                {
-                    symbol: "LEV",
-                    assetName: "Leverj",
-                    assetHeader: {
-                        myWalletBalance: "2.000",
-                        plasmaBalance: "300.999",
-                        plasmaOrders: "54.000",
-                        plasmaAvailable: "61.001",
-                        myWalletBalance_USD: "81.000",
-                        plasmaBalance_USD: "13000.999",
-                        plasmaOrders_USD: "8023.000",
-                        plasmaAvailable_USD: "2600.001"
-                    },
-                    inFlightHeader: {
-                        myWalletBalance: "+2000.320",
-                        plasmaBalance: "+9,000.140"
-                    },
-                    inFlightDetails: [
-                        {
-                            logId: "555555",
-                            myWalltetStatus: "Pending",
-                            myWalletBalance: "+20.320",
-                            plasmaBalance: "-29.732",
-                            plasmaStatus: "Pending"
-                        },
-                        {
-                            logId: "5555558877",
-                            myWalltetStatus: "Pending",
-                            myWalletBalance: "+2000.320",
-                            plasmaBalance: "-19.732",
-                            plasmaStatus: "Pending"
-                        },
-                        {
-                            logId: "8888888",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "-71.732",
-                            plasmaStatus: "Ready"
-                        },
-                        {
-                            logId: "88888883355",
-                            myWalltetStatus: "",
-                            myWalletBalance: "",
-                            plasmaBalance: "-7100.732",
-                            plasmaStatus: "Ready"
-                        }
-                    ]
-                },
-
-
-            ]
-
+            asset_funds: []
         }
     })
 
@@ -145,8 +141,30 @@ $(document).ready(function () {
         console.log("Vue Model Update");
         myPortfolio.total_portfolio_valuation = "63,098 ETH ($6,008,000.00)"
         myPortfolio.plasma_wallet_coins = "2,399.48 ETH ($65,432.75)"
-        myPortfolio.asset_funds[0].inFlightDetails[0].plasmaStatus = "Ready"
-    }, 5000);
+        //myPortfolio.asset_funds[0].inFlightDetails[0].plasmaStatus = "Ready"
+
+
+        let fund = {}
+        let symbol = "ETH"
+        let assetHeader = {}
+        assetHeader.myWalletBalance = "MyBalance1"
+      assetHeader.plasmaBalance = "balanceBN1"
+      assetHeader.plasmaOrders = "availableBN1"
+      assetHeader.plasmaAvailable = "inOrderAsString1"
+      assetHeader.myWalletBalance_USD = "22"
+      assetHeader.plasmaBalance_USD = "balanceBN1"
+      assetHeader.plasmaOrders_USD = "availa22bleBN"
+      assetHeader.plasmaAvailable_USD = "inOrd333erAsString"
+
+      fund.symbol = symbol
+      fund.assetName = symbol
+      fund.assetHeader = assetHeader
+      fund.inFlightHeader = assetHeader
+      
+      fund.inFlightDetails = []
+      
+
+    }, 1000);
     /*setTimeout(function () {
         console.log("Vue Model Update");
         myPortfolio.total_portfolio_valuation = "73,098 ETH ($7,008,000.00)"
@@ -156,6 +174,7 @@ $(document).ready(function () {
         myPortfolio.asset_funds[0].inFlightDetails[5].plasmaStatus = "Ready"
         myPortfolio.asset_funds[0].inFlightDetails[6].plasmaStatus = "Ready"
     }, 7000);*/
+    /*
     setTimeout(function () {
         newArrival =
             {
@@ -199,7 +218,7 @@ $(document).ready(function () {
                     }
                 ]
             }
-        myPortfolio.asset_funds.push(newArrival);
+        myPortfolio.asset_funds["BAT"]=newArrival;
     }, 10000);
     function toggleInFlight(symbol) {
         $("#inFlightHeader_" + symbol).siblings(".inFlightDetails").toggle();
@@ -234,4 +253,10 @@ $(document).ready(function () {
         console.log("Complete all Withdrawals for token " + $(this).attr("completeWithdrawals"));
         tempAlert("Complete all Withdrawals for token " + $(this).attr("completeWithdrawals"), 1000);
     });
+    */
+
+   //{"ETH_Deposits":[{"qtyDisplay":"0.1000 ETH","status":"Ready"},{"qtyDisplay":"0.1000 ETH","status":"Ready"},{"qtyDisplay":"0.1000 ETH","status":"Ready"},{"qtyDisplay":"0.1000 ETH","status":"Ready"},{"qtyDisplay":"0.1000 ETH","status":"Ready"},{"qtyDisplay":"1.0000 ETH","status":"Ready"},{"qtyDisplay":"2.5000 ETH","status":"Ready"},{"qtyDisplay":"2.0000 ETH","status":"Ready"},{"qtyDisplay":"0.1000 ETH","status":"Ready"},{"qtyDisplay":"0.5000 ETH","status":"Ready"}],"ETH_Withdrawals":[{"qtyDisplay":"1.0000 ETH","status":"Claimed"},{"qtyDisplay":"0.1000 ETH","status":"Claimed"},{"qtyDisplay":"0.1000 ETH","status":"Claimed"},{"qtyDisplay":"0.1000 ETH","status":"Claimed"},{"qtyDisplay":"0.5000 ETH","status":"Claimed"},{"qtyDisplay":"0.5000 ETH","status":"Claimed"},{"qtyDisplay":"1.0000 ETH","status":"Claimed"},{"qtyDisplay":"0.0100 ETH","status":"Claimed"},{"qtyDisplay":"0.0100 ETH","status":"Claimed"}],"USDT_Deposits":[],"USDT_Withdrawals":[],"LEV_Deposits":[{"qtyDisplay":"100.0000 LEV","status":"Ready"}],"LEV_Withdrawals":[],"FEE_Deposits":[],"FEE_Withdrawals":[],"DAI_Deposits":[],"DAI_Withdrawals":[]}
+
+ 
+
 });
