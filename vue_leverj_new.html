@@ -1,8 +1,7 @@
 <html lang="en"><head>
   <title>Leverj | DEX</title>
- <!-- <base href="/"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="mockup.js"></script>
+  <!--<base href="/">  -->
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   
@@ -12,7 +11,17 @@
   <meta name="scriptasset" content="33.4f1dc89fd2cd2a7c.js,0.513318f72224edc5.js,23.53570a377a20db28.js">
   <style type="text/css">svg:not(:root).svg-inline--fa {
   overflow: visible; }
-
+  .apexcharts-tooltip.light {
+    border: 1px solid #e3e3e3;
+    background: rgba(156, 152, 152, 0.96);
+  }
+  .apexcharts-tooltip.light.active {
+    border: 1px solid #e3e3e3;
+    background: rgba(156, 152, 152, 0.96);
+  }
+  .ui-tooltip {
+    white-space: pre-line;
+}
 .svg-inline--fa {
   display: inline-block;
   font-size: inherit;
@@ -73,7 +82,10 @@
     width: 2em; }
   .svg-inline--fa.fa-fw {
     width: 1.25em; }
-
+.hoverlay{
+  float: right;
+  z-index: 100;
+}
 .fa-layers svg.svg-inline--fa {
   bottom: 0;
   left: 0;
@@ -5699,7 +5711,7 @@ ul, ol {
                                   </div>
                               </div>
                           </div>
-                          <div class="c01149 c01146">
+                          <div class="c01149 c01146" id="orderBookContainer">
                               <div class="c01263">
                                   <div class="c01265">
                                       <div>
@@ -5736,6 +5748,12 @@ ul, ol {
                                   </div>
                                   <div class="c01278">
                                       <div class="c01282 c01287 c01286">
+                                          <div class="c01295 sell" v-for="(sellRow, index) in sellBookDisplay" v-bind:id="'sell_' + index">
+                                              <div class="c01297 exchange-numberSmall" v-bind:style="sellRow.rowStyle">
+                                                  <span class="c01299 c01298"><span class="c01302">0.000</span><span>{{sellRow.price}}</span></span><span class="c01300 c01298"><span>{{sellRow.baseAmount}}</span><span class="c01303"></span></span><span class="c01301 c01298"><span>{{sellRow.termAmount}}</span><span class="c01302"></span></span></div>
+                                          </div>
+                                      </div>
+                                      <!--<div class="c01282 c01287 c01286">
                                           <div class="c01295 sell">
                                               <div class="c01297 exchange-numberSmall" style="background: linear-gradient(to right, rgb(151, 54, 90), rgb(151, 54, 90) 0.395014%, rgb(93, 51, 80) 0.395014%, rgb(93, 51, 80) 0.395014%, transparent 0.395014%);">
                                                   <span class="c01299 c01298"><span class="c01302">0.000</span><span>176</span></span><span class="c01300 c01298"><span>4,846.85</span><span class="c01303"></span></span><span class="c01301 c01298"><span>0.853</span><span class="c01302"></span></span></div>
@@ -5856,13 +5874,13 @@ ul, ol {
                                               <div class="c01297 exchange-numberSmall" style="background: linear-gradient(to right, rgb(151, 54, 90), rgb(151, 54, 90) 0.977989%, rgb(93, 51, 80) 0.977989%, rgb(93, 51, 80) 107.528%, transparent 107.528%);">
                                                   <span class="c01299 c01298"><span class="c01302">0.000</span><span>244</span></span><span class="c01300 c01298"><span>12,000</span><span class="c01303">.00</span></span><span class="c01301 c01298"><span>2.928</span><span class="c01302"></span></span></div>
                                           </div>
-                                      </div>
+                                      </div>-->
                                       <div class="c01306 c01317">
                                           <div class="c01309 c01308 c01318">
-                                              <div class="c01307 exchange-h6">spread</div><span class="c01315 exchange-numberSmall c01313">4.15%</span>
+                                              <div class="c01307 exchange-h6">spread</div><span class="c01315 exchange-numberSmall c01313">{{topOfTheBookSpreadPercent}}</span>
                                           </div>
                                           <div class="c01310 c01308 c01319">
-                                              <div class="c01307 exchange-h6">last</div><span class="c01314 exchange-numberNormal c01313 up">0.000173</span>
+                                              <div class="c01307 exchange-h6">last</div><span class="c01314 exchange-numberNormal c01313 up">0.000{{lastTradedRate}}</span>
                                           </div>
                                           <div class="c01311 c01308"><svg width="16" height="16" viewBox="0 0 16 16" class="c01312">
                                                   <g stroke-width="0" fill="none" fill-rule="evenodd">
@@ -5891,7 +5909,11 @@ ul, ol {
                                               </svg></div>
                                       </div>
                                       <div class="c01284 c01288 c01286">
-                                          <div class="c01295 buy">
+                                          <div class="c01295 buy" v-for="buyRow in buyBookDisplay">
+                                              <div class="c01297 exchange-numberSmall" v-bind:style="buyRow.rowStyle">
+                                                  <span class="c01299 c01298"><span class="c01302">0.000</span><span>{{buyRow.price}}</span></span><span class="c01300 c01298"><span>{{buyRow.baseAmount}}</span><span class="c01303"></span></span><span class="c01301 c01298"><span>{{buyRow.termAmount}}</span><span class="c01302"></span></span></div>
+                                          </div>
+                                          <!--<div class="c01295 buy">
                                               <div class="c01297 exchange-numberSmall" style="background: linear-gradient(to right, rgb(79, 140, 118), rgb(79, 140, 118) 26.4387%, rgb(60, 91, 93) 26.4387%, rgb(60, 91, 93) 26.4387%, transparent 26.4387%);">
                                                   <span class="c01299 c01298"><span class="c01302">0.000</span><span>169</span></span><span class="c01300 c01298"><span>324,404.71</span><span class="c01303"></span></span><span class="c01301 c01298"><span>54.824</span><span class="c01302"></span></span></div>
                                           </div>
@@ -6007,6 +6029,7 @@ ul, ol {
                                               <div class="c01297 exchange-numberSmall" style="background: linear-gradient(to right, rgb(79, 140, 118), rgb(79, 140, 118) 354.168%, rgb(60, 91, 93) 354.168%, rgb(60, 91, 93) 516.02%, transparent 516.02%);">
                                                   <span class="c01299 c01298"><span class="c01302">0.00000</span><span>7</span></span><span class="c01300 c01298"><span>4,345,665.42</span><span class="c01303"></span></span><span class="c01301 c01298"><span>30.42</span><span class="c01302">0</span></span></div>
                                           </div>
+                                        -->
                                       </div>
                                   </div>
                               </div>
@@ -6021,7 +6044,14 @@ ul, ol {
                                                       <ul class="c01478 c01671" role="tablist">
                                                           <li class="c01479 c01677 c01672 exchange-h4 react-tabs__tab--selected" role="tab" id="react-tabs-10" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-11" tabindex="0">Chart</li>
                                                       </ul>
-                                                      <div class="c01673">
+                                                      <div id="vueChart">
+                                                          <template>
+                                                              <div >
+                                                                <apexchart width="380" type="donut" :options="options" :series="series"></apexchart>
+                                                              </div>
+                                                            </template>
+                                                        </div>
+                                                      <!--<div class="c01673">
                                                           <div class="c01674">
                                                               <div class="c01326 c01678 c01675 isShowText">
                                                                   <div class="c01327"><svg width="25" height="25" viewBox="0 0 25 25" class="c01329">
@@ -6043,7 +6073,7 @@ ul, ol {
                                                                   </div>
                                                               </div>
                                                           </div>
-                                                      </div>
+                                                      </div> -->
                                                   </div>
                                               </div>
                                               <div class="c01668" role="tabpanel" id="react-tabs-11" aria-labelledby="react-tabs-10">
@@ -6080,8 +6110,30 @@ ul, ol {
                                                       <div class="c01340">time</div>
                                                   </div>
                                               </div>
-                                              <div class="c01341 c01343">
+                                              <div class="c01341 c01343" id="tradeBookContainer">
                                                   <div class="c01342">
+                                                    <template v-for="todayTrade in tradeBook.todayTrades">
+                                                        <div v-bind:class="todayTrade.styleClass">
+                                                            <span class="c01706">0.000</span><span>{{todayTrade.price}}</span></div>
+                                                        <div class="c01709 c01708 c01710 exchange-numberSmall">
+                                                            <span>{{todayTrade.amount}}</span><span class="c01707"></span></div>
+                                                        <div class="c01713 c01708 c01715 exchange-numberSmall">{{todayTrade.timestamp}}
+                                                        </div>
+                                                    </template>
+                                                    <div class="c01702">
+                                                        <div class="c01703 exchange-numberTiny">{{tradeBook.yday}}</div>
+                                                    </div>
+                                                    <template v-for="ydayTrade in tradeBook.ydayTrades">
+                                                        <div v-bind:class="ydayTrade.styleClass">
+                                                            <span class="c01706">0.000</span><span>{{ydayTrade.price}}</span></div>
+                                                        <div class="c01709 c01708 c01710 exchange-numberSmall">
+                                                            <span>{{ydayTrade.amount}}</span><span class="c01707"></span></div>
+                                                        <div class="c01713 c01708 c01715 exchange-numberSmall">{{ydayTrade.timestamp}}
+                                                        </div>
+                                                    </template>
+                                                  </div>
+                                                  
+                                                  <!--<div class="c01342">
                                                       <div class="c01711 c01708 c01712 exchange-numberSmall c01704">
                                                           <span class="c01706">0.000</span><span>173</span></div>
                                                       <div class="c01709 c01708 c01710 exchange-numberSmall">
@@ -6214,7 +6266,7 @@ ul, ol {
                                                           <span>1,021.</span><span class="c01707">98</span></div>
                                                       <div class="c01713 c01708 c01715 exchange-numberSmall">09:37:56
                                                       </div>
-                                                  </div>
+                                                  </div> -->
                                               </div>
                                           </div>
                                       </div>
@@ -6481,10 +6533,15 @@ ul, ol {
       <div></div>
   </div>
 </div>
+<script>document.write('<base href="' + document.location + '" />');</script>
 
-<script type="text/javascript" src="33.88b2fafb591f6b0e.js"></script>
-<script type="text/javascript" src="0.15461d991b81a5d8.js"></script>
-<script type="text/javascript" src="2.85dde68d2201a5b3.js"></script>
-<script type="text/javascript" src="23.29ef73861bd1dbc0.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+  <script src="vue_leverj_new.js"></script>
 
 </body></html>
